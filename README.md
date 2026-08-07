@@ -1,4 +1,6 @@
 # Richardsen Thomas
+Designer Developer Dreamer
+
 i code hehehe
 
 
