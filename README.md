@@ -1,4 +1,4 @@
-# 💫 About Me:
+# Richardsen Thomas
 i code hehehe
 
 
