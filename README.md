@@ -1,7 +1,9 @@
 # Richardsen Thomas
 Designer Developer Dreamer
 
-i code hehehe
+I am someone who really likes turning ideas into things that actually work. I like to play with technology and build projects. I also like to try out tools and figure out how things work. I am interested, in Artificial Intelligence, software development, design and creative technology. I like anything that lets me build something
+I like to work on both the creative parts of a project. This means I like to write code and design interfaces. I also like to try out technology and find strange ways to solve problems. Most of what I learn comes from being curious and having ideas. Sometimes I start projects that I do not know much about.
+I am always. Always building things. Sometimes I break everything. That is just part of the process.
 
 
 ## 🌐 Socials:
