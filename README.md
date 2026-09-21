@@ -125,33 +125,21 @@ rule engines.
   <img src="https://img.shields.io/badge/JAVASCRIPT-0b1a2e?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
   <img src="https://img.shields.io/badge/GO-0b1a2e?style=for-the-badge&logo=go&logoColor=00ADD8" alt="Go" />
   <img src="https://img.shields.io/badge/JAVA-0b1a2e?style=for-the-badge&logo=openjdk&logoColor=ED8B00" alt="Java" />
-  <img src="https://img.shields.io/badge/KOTLIN-0b1a2e?style=for-the-badge&logo=kotlin&logoColor=7F52FF" alt="Kotlin" />
   <img src="https://img.shields.io/badge/SWIFT-0b1a2e?style=for-the-badge&logo=swift&logoColor=F05138" alt="Swift" />
-  <img src="https://img.shields.io/badge/LUA-0b1a2e?style=for-the-badge&logo=lua&logoColor=000080" alt="Lua" />
   <img src="https://img.shields.io/badge/BASH-0b1a2e?style=for-the-badge&logo=gnubash&logoColor=4EAA25" alt="Bash" />
   <img src="https://img.shields.io/badge/ZSH-0b1a2e?style=for-the-badge&logo=zsh&logoColor=F15A24" alt="Zsh" />
   <img src="https://img.shields.io/badge/HTML5-0b1a2e?style=for-the-badge&logo=html5&logoColor=E34F26" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-0b1a2e?style=for-the-badge&logo=css3&logoColor=1572B6" alt="CSS3" />
-</p>
-
-<!-- AI, Machine Learning & Data -->
-<p align="center">
   <img src="https://img.shields.io/badge/PYTORCH-122b4d?style=for-the-badge&logo=pytorch&logoColor=EE4C2C" alt="PyTorch" />
   <img src="https://img.shields.io/badge/TENSORFLOW-122b4d?style=for-the-badge&logo=tensorflow&logoColor=FF6F00" alt="TensorFlow" />
   <img src="https://img.shields.io/badge/OPENCV-122b4d?style=for-the-badge&logo=opencv&logoColor=5C3EE8" alt="OpenCV" />
   <img src="https://img.shields.io/badge/HUGGING%20FACE-122b4d?style=for-the-badge&logo=huggingface&logoColor=FFD21E" alt="Hugging Face" />
   <img src="https://img.shields.io/badge/VERCEL%20AI%20SDK-122b4d?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel AI SDK" />
-  <img src="https://img.shields.io/badge/LANGCHAIN-122b4d?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
-  <img src="https://img.shields.io/badge/CUDA-122b4d?style=for-the-badge&logo=nvidia&logoColor=76B900" alt="CUDA" />
   <img src="https://img.shields.io/badge/NUMPY-122b4d?style=for-the-badge&logo=numpy&logoColor=4DABCF" alt="NumPy" />
   <img src="https://img.shields.io/badge/PANDAS-122b4d?style=for-the-badge&logo=pandas&logoColor=E70488" alt="Pandas" />
   <img src="https://img.shields.io/badge/SCIKIT--LEARN-122b4d?style=for-the-badge&logo=scikitlearn&logoColor=F7931E" alt="Scikit-Learn" />
   <img src="https://img.shields.io/badge/OPENAI%20API-122b4d?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI API" />
   <img src="https://img.shields.io/badge/ANTHROPIC-122b4d?style=for-the-badge&logo=anthropic&logoColor=white" alt="Anthropic" />
-</p>
-
-<!-- Linux, Systems & Desktop -->
-<p align="center">
   <img src="https://img.shields.io/badge/LINUX-0d233a?style=for-the-badge&logo=linux&logoColor=FCC624" alt="Linux" />
   <img src="https://img.shields.io/badge/FEDORA-0d233a?style=for-the-badge&logo=fedora&logoColor=51A2DA" alt="Fedora" />
   <img src="https://img.shields.io/badge/ARCH%20LINUX-0d233a?style=for-the-badge&logo=archlinux&logoColor=1793D1" alt="Arch Linux" />
@@ -163,31 +151,14 @@ rule engines.
   <img src="https://img.shields.io/badge/VS%20CODE-0d233a?style=for-the-badge&logo=visualstudiocode&logoColor=007ACC" alt="VS Code" />
   <img src="https://img.shields.io/badge/TMUX-0d233a?style=for-the-badge&logo=tmux&logoColor=1BB91F" alt="Tmux" />
   <img src="https://img.shields.io/badge/KITTY-0d233a?style=for-the-badge&logo=kitty&logoColor=white" alt="Kitty" />
-  <img src="https://img.shields.io/badge/ALACRITTY-0d233a?style=for-the-badge&logo=alacritty&logoColor=F46B23" alt="Alacritty" />
-  <img src="https://img.shields.io/badge/STARSHIP-0d233a?style=for-the-badge&logo=starship&logoColor=DD0B78" alt="Starship" />
-</p>
-
-<!-- Web & App Development -->
-<p align="center">
   <img src="https://img.shields.io/badge/REACT-163558?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/NEXT.JS-163558?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
   <img src="https://img.shields.io/badge/VITE-163558?style=for-the-badge&logo=vite&logoColor=646CFF" alt="Vite" />
-  <img src="https://img.shields.io/badge/VUE.JS-163558?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" alt="Vue.js" />
-  <img src="https://img.shields.io/badge/SVELTE-163558?style=for-the-badge&logo=svelte&logoColor=FF3E00" alt="Svelte" />
   <img src="https://img.shields.io/badge/TAILWIND%20CSS-163558?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/EXPO-163558?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" />
-  <img src="https://img.shields.io/badge/REDUX-163558?style=for-the-badge&logo=redux&logoColor=764ABC" alt="Redux" />
   <img src="https://img.shields.io/badge/NODE.JS-163558?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E" alt="Node.js" />
-  <img src="https://img.shields.io/badge/EXPRESS-163558?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/FASTAPI-163558?style=for-the-badge&logo=fastapi&logoColor=009688" alt="FastAPI" />
   <img src="https://img.shields.io/badge/DJANGO-163558?style=for-the-badge&logo=django&logoColor=44B78B" alt="Django" />
-  <img src="https://img.shields.io/badge/GRAPHQL-163558?style=for-the-badge&logo=graphql&logoColor=E10098" alt="GraphQL" />
-</p>
-
-<!-- Cloud, DevOps & Databases -->
-<p align="center">
   <img src="https://img.shields.io/badge/POSTGRESQL-0f2844?style=for-the-badge&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/REDIS-0f2844?style=for-the-badge&logo=redis&logoColor=DC382D" alt="Redis" />
   <img src="https://img.shields.io/badge/SQLITE-0f2844?style=for-the-badge&logo=sqlite&logoColor=003B57" alt="SQLite" />
   <img src="https://img.shields.io/badge/SUPABASE-0f2844?style=for-the-badge&logo=supabase&logoColor=3ECF8E" alt="Supabase" />
   <img src="https://img.shields.io/badge/FIREBASE-0f2844?style=for-the-badge&logo=firebase&logoColor=FFCA28" alt="Firebase" />
