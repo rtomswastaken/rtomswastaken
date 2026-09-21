@@ -1,16 +1,113 @@
-# Richardsen Thomas
-Designer Developer Dreamer
+<p align="center">
+  <img src="./assets/banner.svg" alt="richardsen thomas" width="100%" />
+</p>
 
-I am someone who really likes turning ideas into things that actually work. I like to play with technology and build projects. I also like to try out tools and figure out how things work. I am interested, in Artificial Intelligence, software development, design and creative technology. I like anything that lets me build something
-I like to work on both the creative parts of a project. This means I like to write code and design interfaces. I also like to try out technology and find strange ways to solve problems. Most of what I learn comes from being curious and having ideas. Sometimes I start projects that I do not know much about.
-I am always. Always building things. Sometimes I break everything. That is just part of the process.
+<p align="center">
+  <a href="https://linkedin.com/in/richardsenthomas"><img src="https://img.shields.io/badge/LINKEDIN-0a192f?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn" /></a>&nbsp;
+  <a href="https://instagram.com/rtoooms"><img src="https://img.shields.io/badge/INSTAGRAM-0a192f?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram" /></a>&nbsp;
+  <a href="mailto:richardsenthomas888@gmail.com"><img src="https://img.shields.io/badge/GMAIL-79c0ff?style=for-the-badge&logo=gmail&logoColor=0a192f&labelColor=79c0ff" alt="Gmail" /></a>
+</p>
 
+<br/>
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/rtoooms) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/richardsenthomas) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:richardsenthomas888@gmail.com) 
+<!-- ==================== TECHNOLOGIES ==================== -->
+<p align="center">
+  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
+  <strong style="font-size: 1.25rem;"><i>Technologies</i></strong>
+</p>
 
-# 💻 Tech Stack:
-![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Adobe After Effects](https://img.shields.io/badge/Adobe%20After%20Effects-9999FF.svg?style=for-the-badge&logo=Adobe%20After%20Effects&logoColor=white) ![Adobe](https://img.shields.io/badge/adobe-%23FF0000.svg?style=for-the-badge&logo=adobe&logoColor=white) ![Adobe Creative Cloud](https://img.shields.io/badge/Adobe%20Creative%20Cloud-DA1F26.svg?style=for-the-badge&logo=Adobe%20Creative%20Cloud&logoColor=white) ![Adobe Dreamweaver](https://img.shields.io/badge/Adobe%20Dreamweaver-FF61F6.svg?style=for-the-badge&logo=Adobe%20Dreamweaver&logoColor=white) ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white) ![Adobe InDesign](https://img.shields.io/badge/Adobe%20InDesign-49021F?style=for-the-badge&logo=adobeindesign&logoColor=FF3366) ![Adobe Lightroom](https://img.shields.io/badge/Adobe%20Lightroom-31A8FF.svg?style=for-the-badge&logo=Adobe%20Lightroom&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Adobe Premiere Pro](https://img.shields.io/badge/Adobe%20Premiere%20Pro-9999FF.svg?style=for-the-badge&logo=Adobe%20Premiere%20Pro&logoColor=white) ![Adobe XD](https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6) ![Affinity Designer](https://img.shields.io/badge/affinity%20desginer-%231B72BE.svg?style=for-the-badge&logo=affinity-designer&logoColor=white) ![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Scipy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139) ![Ubiquiti](https://img.shields.io/badge/ubiquiti-%230559C9.svg?style=for-the-badge&logo=ubiquiti&logoColor=white) ![TOR](https://img.shields.io/badge/tor-%237E4798.svg?style=for-the-badge&logo=tor-project&logoColor=white) ![EA](https://img.shields.io/badge/ea-%23000000.svg?style=for-the-badge&logo=ea&logoColor=white) ![Epic Games](https://img.shields.io/badge/epicgames-%23313131.svg?style=for-the-badge&logo=epicgames&logoColor=white) ![Godot Engine](https://img.shields.io/badge/GODOT-%23FFFFFF.svg?style=for-the-badge&logo=godot-engine) ![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white) ![Itch.io](https://img.shields.io/badge/Itch-%23FF0B34.svg?style=for-the-badge&logo=Itch.io&logoColor=white) ![OpenGL](https://img.shields.io/badge/OpenGL-white?logo=OpenGL&style=for-the-badge) ![Riot Games](https://img.shields.io/badge/riotgames-D32936.svg?style=for-the-badge&logo=riotgames&logoColor=white) ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white) ![Steam](https://img.shields.io/badge/steam-%23000000.svg?style=for-the-badge&logo=steam&logoColor=white) ![Unreal Engine](https://img.shields.io/badge/unrealengine-%23313131.svg?style=for-the-badge&logo=unrealengine&logoColor=white) ![Xbox](https://img.shields.io/badge/xbox-%23107C10.svg?style=for-the-badge&logo=xbox&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Cisco](https://img.shields.io/badge/cisco-%23049fd9.svg?style=for-the-badge&logo=cisco&logoColor=black) ![Meta](https://img.shields.io/badge/Meta-%230467DF.svg?style=for-the-badge&logo=Meta&logoColor=white)
+<p align="center">
+  <!-- Row 1: Core Languages & DevOps (Dark Navy) -->
+  <img src="https://img.shields.io/badge/PYTHON-0b1a2e?style=for-the-badge&logo=python&logoColor=3776AB" alt="Python" />
+  <img src="https://img.shields.io/badge/JAVA-0b1a2e?style=for-the-badge&logo=openjdk&logoColor=ED8B00" alt="Java" />
+  <img src="https://img.shields.io/badge/R-0b1a2e?style=for-the-badge&logo=r&logoColor=276DC3" alt="R" />
+  <img src="https://img.shields.io/badge/MYSQL-0b1a2e?style=for-the-badge&logo=mysql&logoColor=4479A1" alt="MySQL" />
+  <img src="https://img.shields.io/badge/DOCKER-0b1a2e?style=for-the-badge&logo=docker&logoColor=2496ED" alt="Docker" />
+  <img src="https://img.shields.io/badge/GIT-0b1a2e?style=for-the-badge&logo=git&logoColor=F05032" alt="Git" />
+  <img src="https://img.shields.io/badge/GITHUB-0b1a2e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</p>
+<p align="center">
+  <!-- Row 2: Game Dev, 3D & Graphics (Deep Slate Blue) -->
+  <img src="https://img.shields.io/badge/UNREAL%20ENGINE-122b4d?style=for-the-badge&logo=unrealengine&logoColor=white" alt="Unreal Engine" />
+  <img src="https://img.shields.io/badge/UNITY-122b4d?style=for-the-badge&logo=unity&logoColor=white" alt="Unity" />
+  <img src="https://img.shields.io/badge/GODOT-122b4d?style=for-the-badge&logo=godotengine&logoColor=478CBF" alt="Godot" />
+  <img src="https://img.shields.io/badge/BLENDER-122b4d?style=for-the-badge&logo=blender&logoColor=F5792A" alt="Blender" />
+  <img src="https://img.shields.io/badge/OPENGL-122b4d?style=for-the-badge&logo=opengl&logoColor=white" alt="OpenGL" />
+  <img src="https://img.shields.io/badge/CLOUDFLARE-122b4d?style=for-the-badge&logo=cloudflare&logoColor=F38020" alt="Cloudflare" />
+</p>
+<p align="center">
+  <!-- Row 3: Frontend & Design Creative Suite (Cyan / Sky Blue) -->
+  <img src="https://img.shields.io/badge/REACT-58a6ff?style=for-the-badge&logo=react&logoColor=0b1a2e&labelColor=58a6ff" alt="React" />
+  <img src="https://img.shields.io/badge/HTML5-58a6ff?style=for-the-badge&logo=html5&logoColor=0b1a2e&labelColor=58a6ff" alt="HTML5" />
+  <img src="https://img.shields.io/badge/FIGMA-58a6ff?style=for-the-badge&logo=figma&logoColor=0b1a2e&labelColor=58a6ff" alt="Figma" />
+  <img src="https://img.shields.io/badge/PHOTOSHOP-58a6ff?style=for-the-badge&logo=adobephotoshop&logoColor=0b1a2e&labelColor=58a6ff" alt="Photoshop" />
+  <img src="https://img.shields.io/badge/ILLUSTRATOR-58a6ff?style=for-the-badge&logo=adobeillustrator&logoColor=0b1a2e&labelColor=58a6ff" alt="Illustrator" />
+  <img src="https://img.shields.io/badge/PREMIERE%20PRO-58a6ff?style=for-the-badge&logo=adobepremierepro&logoColor=0b1a2e&labelColor=58a6ff" alt="Premiere Pro" />
+  <img src="https://img.shields.io/badge/AFTER%20EFFECTS-58a6ff?style=for-the-badge&logo=adobeaftereffects&logoColor=0b1a2e&labelColor=58a6ff" alt="After Effects" />
+</p>
 
----
+<br/>
 
+<!-- ==================== STATISTICS ==================== -->
+<p align="center">
+  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
+  <strong style="font-size: 1.25rem;"><i>Statistics</i></strong>
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com/?user=rtomswastaken&theme=tokyonight&background=080f1a&border=1f6feb&stroke=58a6ff&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" alt="Richardsen Thomas Activity &amp; Streak Stats" />
+</p>
+
+<br/>
+<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
+
+<!-- ==================== ABOUT ME ==================== -->
+<p align="center">
+  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
+  <strong style="font-size: 1.25rem;"><i>About Me</i></strong>
+</p>
+
+<table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
+  <tr style="border: none;">
+    <td width="38%" align="center" valign="middle" style="border: none; padding-right: 20px;">
+      <!-- Replace ./assets/avatar.png with your uploaded character image -->
+      <img src="./assets/avatar.png" width="220" alt="Richardsen Thomas" style="border-radius: 14px;" />
+    </td>
+    <td width="62%" valign="middle" style="border: none; font-size: 1rem; line-height: 1.7; color: #c9d1d9;">
+      Hello! My name is <b>Richardsen Thomas</b>, and I am a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>
+      I am someone who really likes turning ideas into things that actually work. I love exploring <b>Artificial Intelligence, software development, design, and creative technology</b> — anything that lets me build something innovative.<br/><br/>
+      I work across both the creative and technical parts of projects: writing code, designing interfaces, and discovering unconventional ways to solve problems. Constantly building, learning from curiosity, and exploring new frontiers.
+    </td>
+  </tr>
+</table>
+
+<br/>
+<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
+
+<!-- ==================== HOBBIES & GOALS ==================== -->
+<p align="center">
+  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
+  <strong style="font-size: 1.25rem;"><i>Hobbies &amp; Goals</i></strong>
+</p>
+
+<table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
+  <tr style="border: none;">
+    <td align="center" valign="middle" style="border: none; padding: 10px 25px;">
+      <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
+        <b>Designer &amp; Developer</b> experimenting at the edge of tech &amp; creativity.
+      </p>
+      <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
+        “I am always building things. Sometimes I break everything. That is just part of the process.”
+      </p>
+      <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
+        🕹️ <b>Game Development</b> &nbsp;•&nbsp; 🎨 <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; 👾 <b>Creative Tech</b>
+      </p>
+    </td>
+    <td width="150" align="center" valign="middle" style="border: none; padding-left: 10px;">
+      <!-- Blastoise mascot (can use ./assets/mascot.gif or ./assets/mascot.png) -->
+      <img src="./assets/mascot.png" width="130" alt="Blastoise Mascot" />
+    </td>
+  </tr>
+</table>
