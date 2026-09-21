@@ -202,15 +202,11 @@ rule engines.
 
 
 <!-- ==================== HOBBIES & GOALS ==================== -->
-<p align="center">
-  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
-  <strong style="font-size: 1.25rem;"><i>Hobbies &amp; Goals</i></strong>
-</p>
-
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
   <tr style="border: none;">
 
-  <td width="50%" valign="top" style="border: none; padding: 15px 25px;">
+<!-- HOBBIES -->
+<td width="33%" valign="top" style="border: none; padding: 15px 25px;">
 
   <h3>Hobbies &amp; Things I Somehow Have Time For</h3>
 
@@ -231,9 +227,10 @@ rule engines.
     experimenting</b>, there's a good chance I'm interested.
   </p>
 
-  </td>
+</td>
 
-  <td width="50%" valign="top" style="border: none; padding: 15px 25px;">
+<!-- GOALS -->
+<td width="33%" valign="top" style="border: none; padding: 15px 25px;">
 
   <h3>Goals &amp; What I'm Working Towards</h3>
 
@@ -251,8 +248,8 @@ rule engines.
   <p>
     I'm also working towards becoming an active part of the
     <b>open-source community</b> — fixing bugs, maintaining projects,
-    contributing to AI/ML projects, and helping make things better
-    through both <b>engineering and design</b>.
+    contributing to AI/ML projects, and making things better through both
+    <b>engineering and design</b>.
   </p>
 
   <p>
@@ -260,7 +257,37 @@ rule engines.
     and hopefully contribute more than I break.</i>
   </p>
 
-  </td>
+</td>
+
+<!-- ABOUT / MASCOT -->
+<td width="34%" align="center" valign="middle" style="border: none; padding: 15px 25px;">
+
+  <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
+    <b>Designer &amp; Developer</b><br>
+    building weird, useful things where tech meets creativity.
+  </p>
+
+  <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
+    “I build things, break things, fix things, and occasionally wonder
+    why I built them in the first place.”
+  </p>
+
+  <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
+    <b>AI &amp; Open Source</b>
+    &nbsp;•&nbsp;
+    <b>Creative Tech</b>
+    &nbsp;•&nbsp;
+    <b>Games &amp; Mac Apps</b>
+  </p>
+
+  <p style="font-size: 0.9rem; color: #8b949e; margin-top: 12px;">
+    <b>And yes, I really love tortoises.</b><br>
+    They're basically my unofficial mascot.
+  </p>
+
+  <img src="./assets/mascot.png" width="140" alt="Tortoise Mascot" />
+
+</td>
 
   </tr>
 </table>
