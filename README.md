@@ -51,7 +51,7 @@ A lightweight, decentralized real-time terminal chat platform built from scratch
 <img src="https://img.shields.io/badge/TAILSCALE-0b1a2e?style=for-the-badge&amp;logo=tailscale&amp;logoColor=white" alt="Tailscale" height="20" />
 </a>
 <br/><br/>
-<div align="right">
+<div align="left">
 <a href="https://github.com/rtomswastaken/chattui">
 <img src="./buttons/github.svg" alt="GitHub" height="28" />
 </a>
@@ -67,10 +67,11 @@ An all-in-one agentic terminal IDE unifying diverse AI coding models and autonom
 <a href="https://github.com/rtomswastaken/Oriah-IDE">
 <img src="https://img.shields.io/badge/PYTHON-122b4d?style=for-the-badge&amp;logo=python&amp;logoColor=3776AB" alt="Python" height="20" />
 <img src="https://img.shields.io/badge/TEXTUAL-122b4d?style=for-the-badge&amp;logo=gnubash&amp;logoColor=00C8FF" alt="Textual" height="20" />
+<img src="https://img.shields.io/badge/RICH-122b4d?style=for-the-badge&amp;logo=gnubash&amp;logoColor=white" alt="Rich" height="20" />
 <img src="https://img.shields.io/badge/AI%20AGENTS-122b4d?style=for-the-badge&amp;logo=openai&amp;logoColor=white" alt="AI Agents" height="20" />
 </a>
 <br/><br/>
-<div align="right">
+<div align="left">
 <a href="https://github.com/rtomswastaken/Oriah-IDE">
 <img src="./buttons/github.svg" alt="GitHub" height="28" />
 </a>
@@ -81,15 +82,16 @@ An all-in-one agentic terminal IDE unifying diverse AI coding models and autonom
 <img src="./buttons/status-ideation.svg" alt="Ideation" height="18" align="right" />
 </a>
 <h3><a href="https://github.com/rtomswastaken/Time-Table-Thingy">Time Table Thingy</a></h3>
-An intelligent timetable generation system designed to optimize academic scheduling through automated constraint-solving rather than rigid manual templates.
+An intelligent timetable generation system designed to optimize academic scheduling through automated constraint-solving, smart conflict-free allocation, and dynamic rule engines.
 <br/><br/>
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
 <img src="https://img.shields.io/badge/ALGORITHMS-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Algorithms" height="20" />
 <img src="https://img.shields.io/badge/SCHEDULING-0d233a?style=for-the-badge&amp;logo=notion&amp;logoColor=white" alt="Scheduling" height="20" />
 <img src="https://img.shields.io/badge/SYSTEM%20DESIGN-0d233a?style=for-the-badge&amp;logo=figma&amp;logoColor=white" alt="System Design" height="20" />
+<img src="https://img.shields.io/badge/OPTIMIZATION-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Optimization" height="20" />
 </a>
 <br/><br/>
-<div align="right">
+<div align="left">
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
 <img src="./buttons/github.svg" alt="GitHub" height="28" />
 </a>
