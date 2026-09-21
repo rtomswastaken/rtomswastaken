@@ -101,7 +101,7 @@
         “I am always building things. Sometimes I break everything. That is just part of the process.”
       </p>
       <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
-        🕹️ <b>Game Development</b> &nbsp;•&nbsp; 🎨 <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; 👾 <b>Creative Tech</b>
+        <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b>
       </p>
     </td>
     <td width="150" align="center" valign="middle" style="border: none; padding-left: 10px;">
