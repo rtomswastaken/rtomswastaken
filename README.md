@@ -92,7 +92,7 @@ An intelligent timetable generation system designed to optimize academic schedul
 <img src="https://img.shields.io/badge/OPTIMIZATION-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Optimization" height="20" />
 </a>
 <br/><br/>
-<br/><br/>
+<br/>
 <div align="left">
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
 <img src="./buttons/github.svg" alt="GitHub" height="28" />
