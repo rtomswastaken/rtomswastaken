@@ -162,9 +162,8 @@
         <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b>
       </p>
     </td>
-    <td width="150" align="center" valign="middle" style="border: none; padding-left: 10px;">
-      <!-- Blastoise mascot (can use ./assets/mascot.gif or ./assets/mascot.png) -->
-      <img src="./assets/mascot.png" width="130" alt="Blastoise Mascot" />
+    <td width="170" align="center" valign="middle" style="border: none; padding-left: 10px;">
+      <img src="./assets/mascot.png" width="160" alt="Turtle Mascot" />
     </td>
   </tr>
 </table>
