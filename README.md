@@ -14,8 +14,6 @@
       Hello! I'm <b>Richardsen Thomas</b> — a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>I like turning random ideas into things that probably shouldn't work, but somehow do<. I'm into <b>Artificial Intelligence, software development, UI/UX, creative technology</b>, and pretty much anything that lets me build cool stuff.<br/><br/>
 Most of my projects start with <i>"wait... what if I tried this?"</i> and end with a suspicious amount of caffeine, 37 browser tabs, and 100 Git commits. <br/><br/>
 
-Currently <b>building, breaking, learning, experimenting</b> and occasionally pretending I understand what the error message is trying to tell me.<br/><br/>
-
 <i>Making things. Making them pretty. Making AI do stuff. Debugging at 2AM.</i>      <br/>
       <br/>
   <p align="center">
@@ -29,6 +27,7 @@ Currently <b>building, breaking, learning, experimenting</b> and occasionally pr
 
 <br/>
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
 <br/>
 
 <!-- ==================== CURRENTLY BUILDING ==================== -->
