@@ -30,82 +30,135 @@
 <br/>
 
 <!-- ==================== CURRENTLY BUILDING ==================== -->
+<!-- ==================== CURRENTLY BUILDING ==================== -->
 <p align="center">
-  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
   <strong style="font-size: 1.25rem;"><i>Currently Building</i></strong>
 </p>
 
-<table width="100%">
-<tr>
-<td width="33%" valign="top">
-<a href="https://github.com/rtomswastaken/chattui">
-<img src="./buttons/status-building.svg" alt="Building" height="18" align="right" />
-</a>
-<h3><a href="https://github.com/rtomswastaken/chattui">chatTUI</a></h3>
-A lightweight, decentralized real-time terminal chat platform built from scratch in Go. Features rich TUI navigation, private networking over Tailscale, SQLite persistence, and channel-based rooms.
-<br/><br/>
-<a href="https://github.com/rtomswastaken/chattui">
-<img src="https://img.shields.io/badge/GO-0b1a2e?style=for-the-badge&amp;logo=go&amp;logoColor=00ADD8" alt="Go" height="20" />
-<img src="https://img.shields.io/badge/SQLITE-0b1a2e?style=for-the-badge&amp;logo=sqlite&amp;logoColor=003B57" alt="SQLite" height="20" />
-<img src="https://img.shields.io/badge/DOCKER-0b1a2e?style=for-the-badge&amp;logo=docker&amp;logoColor=2496ED" alt="Docker" height="20" />
-<img src="https://img.shields.io/badge/TAILSCALE-0b1a2e?style=for-the-badge&amp;logo=tailscale&amp;logoColor=white" alt="Tailscale" height="20" />
-</a>
-<br/><br/>
-<br/><br/>
-<div align="left">
-<a href="https://github.com/rtomswastaken/chattui">
-<img src="./buttons/github.svg" alt="GitHub" height="28" />
-</a>
-</div>
-</td>
-<td width="33%" valign="top">
-<a href="https://github.com/rtomswastaken/Oriah-IDE">
-<img src="./buttons/status-building.svg" alt="Building" height="18" align="right" />
-</a>
-<h3><a href="https://github.com/rtomswastaken/Oriah-IDE">Oriah IDE</a></h3>
-An all-in-one agentic terminal IDE unifying diverse AI coding models and autonomous agents within a single customizable terminal workspace with multi-tab editing and live execution.
-<br/><br/>
-<a href="https://github.com/rtomswastaken/Oriah-IDE">
-<img src="https://img.shields.io/badge/PYTHON-122b4d?style=for-the-badge&amp;logo=python&amp;logoColor=3776AB" alt="Python" height="20" />
-<img src="https://img.shields.io/badge/TEXTUAL-122b4d?style=for-the-badge&amp;logo=gnubash&amp;logoColor=00C8FF" alt="Textual" height="20" />
-<img src="https://img.shields.io/badge/RICH-122b4d?style=for-the-badge&amp;logo=gnubash&amp;logoColor=white" alt="Rich" height="20" />
-<img src="https://img.shields.io/badge/AI%20AGENTS-122b4d?style=for-the-badge&amp;logo=openai&amp;logoColor=white" alt="AI Agents" height="20" />
-</a>
-<br/><br/>
-<br/><br/>
-<div align="left">
-<a href="https://github.com/rtomswastaken/Oriah-IDE">
-<img src="./buttons/github.svg" alt="GitHub" height="28" />
-</a>
-</div>
-</td>
-<td width="33%" valign="top">
-<a href="https://github.com/rtomswastaken/Time-Table-Thingy">
-<img src="./buttons/status-ideation.svg" alt="Ideation" height="18" align="right" />
-</a>
-<h3><a href="https://github.com/rtomswastaken/Time-Table-Thingy">Time Table Thingy</a></h3>
-An intelligent timetable generation system designed to optimize academic scheduling through automated constraint-solving, smart conflict-free allocation, and dynamic rule engines.
-<br/><br/>
-<a href="https://github.com/rtomswastaken/Time-Table-Thingy">
-<img src="https://img.shields.io/badge/ALGORITHMS-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Algorithms" height="20" />
-<img src="https://img.shields.io/badge/SCHEDULING-0d233a?style=for-the-badge&amp;logo=notion&amp;logoColor=white" alt="Scheduling" height="20" />
-<img src="https://img.shields.io/badge/SYSTEM%20DESIGN-0d233a?style=for-the-badge&amp;logo=figma&amp;logoColor=white" alt="System Design" height="20" />
-<img src="https://img.shields.io/badge/OPTIMIZATION-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Optimization" height="20" />
-</a>
-<br/><br/>
-<br/>
-<div align="left">
-<a href="https://github.com/rtomswastaken/Time-Table-Thingy">
-<img src="./buttons/github.svg" alt="GitHub" height="28" />
-</a>
-</div>
-</td>
-</tr>
-</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
+  <tr style="border: none;">
 
-<br/>
-<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
-<br/>
+    <!-- ==================== chatTUI ==================== -->
+<td width="33.33%" valign="top" style="border: none; padding: 10px 12px;">
+
+  <a href="https://github.com/rtomswastaken/chattui">
+    <img
+      src="./buttons/status-building.svg"
+      alt="Building"
+      height="18"
+      align="right"
+    />
+  </a>
+
+    <h3>
+      <a href="https://github.com/rtomswastaken/chattui">chatTUI</a>
+    </h3>
+
+    A lightweight, decentralized real-time terminal chat platform built from scratch in Go.
+    Features rich TUI navigation, private networking over Tailscale, SQLite persistence,
+    and channel-based rooms.
+
+    <br/><br/>
+
+    <a href="https://github.com/rtomswastaken/chattui">
+      <img src="https://img.shields.io/badge/GO-0b1a2e?style=for-the-badge&amp;logo=go&amp;logoColor=00ADD8" alt="Go" height="20" />
+      <img src="https://img.shields.io/badge/SQLITE-0b1a2e?style=for-the-badge&amp;logo=sqlite&amp;logoColor=003B57" alt="SQLite" height="20" />
+      <img src="https://img.shields.io/badge/DOCKER-0b1a2e?style=for-the-badge&amp;logo=docker&amp;logoColor=2496ED" alt="Docker" height="20" />
+      <img src="https://img.shields.io/badge/TAILSCALE-0b1a2e?style=for-the-badge&amp;logo=tailscale&amp;logoColor=white" alt="Tailscale" height="20" />
+    </a>
+
+  </td>
+
+
+  <!-- ==================== Oriah IDE ==================== -->
+  <td width="33.33%" valign="top" style="border: none; padding: 10px 12px;">
+
+    <a href="https://github.com/rtomswastaken/Oriah-IDE">
+      <img
+        src="./buttons/status-building.svg"
+        alt="Building"
+        height="18"
+        align="right"
+      />
+    </a>
+
+    <h3>
+      <a href="https://github.com/rtomswastaken/Oriah-IDE">Oriah IDE</a>
+    </h3>
+
+    An all-in-one agentic terminal IDE unifying diverse AI coding models and autonomous
+    agents within a single customizable terminal workspace with multi-tab editing and
+    live execution.
+
+    <br/><br/>
+
+    <a href="https://github.com/rtomswastaken/Oriah-IDE">
+      <img src="https://img.shields.io/badge/PYTHON-122b4d?style=for-the-badge&amp;logo=python&amp;logoColor=3776AB" alt="Python" height="20" />
+      <img src="https://img.shields.io/badge/TEXTUAL-122b4d?style=for-the-badge&amp;logo=gnubash&amp;logoColor=00C8FF" alt="Textual" height="20" />
+      <img src="https://img.shields.io/badge/RICH-122b4d?style=for-the-badge&amp;logo=gnubash&amp;logoColor=white" alt="Rich" height="20" />
+      <img src="https://img.shields.io/badge/AI%20AGENTS-122b4d?style=for-the-badge&amp;logo=openai&amp;logoColor=white" alt="AI Agents" height="20" />
+    </a>
+
+  </td>
+
+
+  <!-- ==================== Time Table Thingy ==================== -->
+  <td width="33.33%" valign="top" style="border: none; padding: 10px 12px;">
+
+    <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
+      <img
+        src="./buttons/status-ideation.svg"
+        alt="Ideation"
+        height="18"
+        align="right"
+      />
+    </a>
+
+    <h3>
+      <a href="https://github.com/rtomswastaken/Time-Table-Thingy">Time Table Thingy</a>
+    </h3>
+
+    An intelligent timetable generation system designed to optimize academic scheduling
+    through automated constraint-solving, smart conflict-free allocation, and dynamic
+    rule engines.
+
+    <br/><br/>
+
+    <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
+      <img src="https://img.shields.io/badge/ALGORITHMS-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Algorithms" height="20" />
+      <img src="https://img.shields.io/badge/SCHEDULING-0d233a?style=for-the-badge&amp;logo=notion&amp;logoColor=white" alt="Scheduling" height="20" />
+      <img src="https://img.shields.io/badge/SYSTEM%20DESIGN-0d233a?style=for-the-badge&amp;logo=figma&amp;logoColor=white" alt="System Design" height="20" />
+      <img src="https://img.shields.io/badge/OPTIMIZATION-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Optimization" height="20" />
+    </a>
+
+  </td>
+
+</tr>
+
+<!-- ==================== GITHUB BUTTON ROW ==================== -->
+<tr style="border: none;">
+
+  <td width="33.33%" align="right" valign="bottom" style="border: none; padding: 10px 12px;">
+    <a href="https://github.com/rtomswastaken/chattui">
+      <img src="./buttons/github.svg" alt="GitHub" height="28" />
+    </a>
+  </td>
+
+  <td width="33.33%" align="right" valign="bottom" style="border: none; padding: 10px 12px;">
+    <a href="https://github.com/rtomswastaken/Oriah-IDE">
+      <img src="./buttons/github.svg" alt="GitHub" height="28" />
+    </a>
+  </td>
+
+  <td width="33.33%" align="right" valign="bottom" style="border: none; padding: 10px 12px;">
+    <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
+      <img src="./buttons/github.svg" alt="GitHub" height="28" />
+    </a>
+  </td>
+
+  </tr>
+
+</table>
 
 <!-- ==================== TECHNOLOGIES ==================== -->
 <p align="center">
