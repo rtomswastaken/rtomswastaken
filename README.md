@@ -202,92 +202,21 @@ rule engines.
 
 
 <!-- ==================== HOBBIES & GOALS ==================== -->
-<table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
+table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
   <tr style="border: none;">
-
-<!-- HOBBIES -->
-<td width="33%" valign="top" style="border: none; padding: 15px 25px;">
-
-  <h3>Hobbies &amp; Things I Somehow Have Time For</h3>
-
-  <p>
-    When I'm not writing code, I'm usually doing something creative.
-    I enjoy <b>photography, videography, drawing, doodling, designing</b>,
-    and anything involving <b>cars</b>.
-  </p>
-
-  <p>
-    I also like driving around with absolutely no productive reason,
-    experimenting with visual ideas, and turning random thoughts into
-    designs that probably started as a doodle.
-  </p>
-
-  <p>
-    Basically, if it involves <b>creating, designing, driving, or
-    experimenting</b>, there's a good chance I'm interested.
-  </p>
-
-</td>
-
-<!-- GOALS -->
-<td width="33%" valign="top" style="border: none; padding: 15px 25px;">
-
-  <h3>Goals &amp; What I'm Working Towards</h3>
-
-  <p>
-    I'm working towards becoming genuinely good at <b>AI</b> and becoming
-    a stronger all-round developer along the way.
-  </p>
-
-  <p>
-    I want to build things around <b>AI agents, games, Mac apps,
-    enterprise technology</b>, and whatever interesting problem catches
-    my attention next.
-  </p>
-
-  <p>
-    I'm also working towards becoming an active part of the
-    <b>open-source community</b> — fixing bugs, maintaining projects,
-    contributing to AI/ML projects, and making things better through both
-    <b>engineering and design</b>.
-  </p>
-
-  <p>
-    <i>Long term: build weird but useful things, make them actually good,
-    and hopefully contribute more than I break.</i>
-  </p>
-
-</td>
-
-<!-- ABOUT / MASCOT -->
-<td width="34%" align="center" valign="middle" style="border: none; padding: 15px 25px;">
-
-  <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
-    <b>Designer &amp; Developer</b><br>
-    building weird, useful things where tech meets creativity.
-  </p>
-
-  <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
-    “I build things, break things, fix things, and occasionally wonder
-    why I built them in the first place.”
-  </p>
-
-  <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
-    <b>AI &amp; Open Source</b>
-    &nbsp;•&nbsp;
-    <b>Creative Tech</b>
-    &nbsp;•&nbsp;
-    <b>Games &amp; Mac Apps</b>
-  </p>
-
-  <p style="font-size: 0.9rem; color: #8b949e; margin-top: 12px;">
-    <b>And yes, I really love tortoises.</b><br>
-    They're basically my unofficial mascot.
-  </p>
-
-  <img src="./assets/mascot.png" width="140" alt="Tortoise Mascot" />
-
-</td>
-
+    <td align="center" valign="middle" style="border: none; padding: 10px 25px;">
+      <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
+        <b>Designer &amp; Developer</b> experimenting at the edge of tech &amp; creativity.
+      </p>
+      <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
+        “I am always building things. Sometimes I break everything. That is just part of the process.”
+      </p>
+      <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
+        <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b>
+      </p>
+    </td>
+    <td width="170" align="center" valign="middle" style="border: none; padding-left: 10px;">
+      <img src="./assets/mascot.png" width="160" alt="Turtle Mascot" />
+    </td>
   </tr>
 </table>
