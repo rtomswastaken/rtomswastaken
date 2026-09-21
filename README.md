@@ -109,6 +109,10 @@ rule engines.
 </tr>
 </table>
 
+<br/>
+<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
+
 <!-- ==================== TECHNOLOGIES ==================== -->
 <p align="center">
   <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
