@@ -51,6 +51,7 @@ A lightweight, decentralized real-time terminal chat platform built from scratch
 <img src="https://img.shields.io/badge/TAILSCALE-0b1a2e?style=for-the-badge&amp;logo=tailscale&amp;logoColor=white" alt="Tailscale" height="20" />
 </a>
 <br/><br/>
+<br/><br/>
 <div align="left">
 <a href="https://github.com/rtomswastaken/chattui">
 <img src="./buttons/github.svg" alt="GitHub" height="28" />
