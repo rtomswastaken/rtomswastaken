@@ -24,9 +24,9 @@
 
 
 <p align="center">
-  <a href="https://linkedin.com/in/richardsenthomas"><img src="https://img.shields.io/badge/LINKEDIN-0a192f?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn" /></a>&nbsp;
-  <a href="https://instagram.com/rtoooms"><img src="https://img.shields.io/badge/INSTAGRAM-0a192f?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram" /></a>&nbsp;
-  <a href="mailto:richardsenthomas888@gmail.com"><img src="https://img.shields.io/badge/GMAIL-79c0ff?style=for-the-badge&logo=gmail&logoColor=0a192f&labelColor=79c0ff" alt="Gmail" /></a>
+  <a href="https://linkedin.com/in/richardsenthomas"><img src="./assets/button-linkedin.svg" alt="LinkedIn" height="34" /></a>&nbsp;
+  <a href="https://instagram.com/rtoooms"><img src="./assets/button-instagram.svg" alt="Instagram" height="34" /></a>&nbsp;
+  <a href="mailto:richardsenthomas888@gmail.com"><img src="./assets/button-gmail.svg" alt="Gmail" height="34" /></a>
 </p>
 
 <br/>
