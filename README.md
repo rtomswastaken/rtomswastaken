@@ -2,7 +2,6 @@
   <img src="./assets/rtoms.svg" alt="richardsen thomas" width="100%" />
 </p>
 
-<br/>
 
 <!-- ==================== ABOUT ME ==================== -->
 <p align="center">
