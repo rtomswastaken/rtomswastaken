@@ -11,9 +11,8 @@
       <img src="./assets/avatar.png" alt="Richardsen Thomas Mascot"style="width: 100%; max-width: 720px; height: auto; display: block; margin: auto;"/>
     </td>
     <td width="62%" valign="middle" style="border: none; font-size: 1rem; line-height: 1.7; color: #c9d1d9;">
-      Hello! I'm <b>Richardsen Thomas</b> — a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>I like turning random ideas into things that <i>probably shouldn't work, but somehow do</i>. I'm into <b>Artificial Intelligence, software development, UI/UX, creative technology</b>, and pretty much anything that lets me build cool stuff and break it 14 minutes later.<br/><br/>
-I bounce between <b>code, design, terminals, AI, and questionable ideas</b> on a daily basis. One minute I'm building an app, the next I'm redesigning a button because it looked at me funny.<br/><br/>
-Most of my projects start with <i>"wait... what if I tried this?"</i> and end with a suspicious amount of caffeine, 37 browser tabs, and a Git commit called <code>final-final-v2-actually-final</code>.<br/><br/>
+      Hello! I'm <b>Richardsen Thomas</b> — a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>I like turning random ideas into things that probably shouldn't work, but somehow do<. I'm into <b>Artificial Intelligence, software development, UI/UX, creative technology</b>, and pretty much anything that lets me build cool stuff.<br/><br/>
+Most of my projects start with <i>"wait... what if I tried this?"</i> and end with a suspicious amount of caffeine, 37 browser tabs, and 100 Git commits. <br/><br/>
 
 Currently <b>building, breaking, learning, experimenting</b> and occasionally pretending I understand what the error message is trying to tell me.<br/><br/>
 
