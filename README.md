@@ -2,12 +2,6 @@
   <img src="./assets/rtoms.svg" alt="richardsen thomas" width="100%" />
 </p>
 
-<p align="center">
-  <a href="https://linkedin.com/in/richardsenthomas"><img src="https://img.shields.io/badge/LINKEDIN-0a192f?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn" /></a>&nbsp;
-  <a href="https://instagram.com/rtoooms"><img src="https://img.shields.io/badge/INSTAGRAM-0a192f?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram" /></a>&nbsp;
-  <a href="mailto:richardsenthomas888@gmail.com"><img src="https://img.shields.io/badge/GMAIL-79c0ff?style=for-the-badge&logo=gmail&logoColor=0a192f&labelColor=79c0ff" alt="Gmail" /></a>
-</p>
-
 <br/>
 
 <!-- ==================== ABOUT ME ==================== -->
@@ -32,6 +26,12 @@
 <br/>
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
 <br/>
+
+<p align="center">
+  <a href="https://linkedin.com/in/richardsenthomas"><img src="https://img.shields.io/badge/LINKEDIN-0a192f?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn" /></a>&nbsp;
+  <a href="https://instagram.com/rtoooms"><img src="https://img.shields.io/badge/INSTAGRAM-0a192f?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram" /></a>&nbsp;
+  <a href="mailto:richardsenthomas888@gmail.com"><img src="https://img.shields.io/badge/GMAIL-79c0ff?style=for-the-badge&logo=gmail&logoColor=0a192f&labelColor=79c0ff" alt="Gmail" /></a>
+</p>
 
 <!-- ==================== TECHNOLOGIES ==================== -->
 <p align="center">
