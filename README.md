@@ -210,8 +210,7 @@ rule engines.
 <b>Designer &amp; Developer</b> experimenting at the edge of tech, games &amp; creative design.
 </p>
 <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
-“Always building, learning from curiosity, and exploring new frontiers. Also, I love tortoises — slow, steady, and unfazed by compiler errors.”
-</p>
+When I’m not coding, I’m usually doing something creative — photography, videography, drawing, designing, doodling, or messing around with cars. I’m working towards getting really good at AI, building AI agents, games, Mac apps, and enterprise tech, while contributing more to open source through code, AI/ML, and design.</p>
 <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
 <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b> &nbsp;•&nbsp; <b>Tortoise Enthusiast</b>
 </p>
