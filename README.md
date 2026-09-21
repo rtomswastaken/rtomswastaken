@@ -118,7 +118,6 @@ rule engines.
 
 <!-- ==================== TECHNOLOGIES ==================== -->
 <p align="center">
-  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
   <strong style="font-size: 1.25rem;"><i>Technologies</i></strong>
 </p>
 
@@ -188,7 +187,6 @@ rule engines.
 
 <!-- ==================== STATISTICS ==================== -->
 <p align="center">
-  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
   <strong style="font-size: 1.25rem;"><i>Statistics</i></strong>
 </p>
 
@@ -202,21 +200,25 @@ rule engines.
 
 
 <!-- ==================== HOBBIES & GOALS ==================== -->
-table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
-  <tr style="border: none;">
-    <td align="center" valign="middle" style="border: none; padding: 10px 25px;">
-      <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
-        <b>Designer &amp; Developer</b> experimenting at the edge of tech &amp; creativity.
-      </p>
-      <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
-        “I am always building things. Sometimes I break everything. That is just part of the process.”
-      </p>
-      <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
-        <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b>
-      </p>
-    </td>
-    <td width="170" align="center" valign="middle" style="border: none; padding-left: 10px;">
-      <img src="./assets/mascot.png" width="160" alt="Turtle Mascot" />
-    </td>
-  </tr>
+<p align="center">
+  <strong style="font-size: 1.25rem;"><i>Hobbies &amp; Goals</i></strong>
+</p>
+
+<table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
+<tr style="border: none;">
+<td align="center" valign="middle" style="border: none; padding: 10px 25px;">
+<p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
+<b>Designer &amp; Developer</b> experimenting at the edge of tech, games &amp; creative design.
+</p>
+<p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
+“Always building, learning from curiosity, and exploring new frontiers. Also, I love tortoises — slow, steady, and unfazed by compiler errors.”
+</p>
+<p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
+<b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b> &nbsp;•&nbsp; <b>Tortoise Enthusiast</b>
+</p>
+</td>
+<td width="170" align="center" valign="middle" style="border: none; padding-left: 10px;">
+<img src="./assets/mascot.png" width="160" alt="Turtle Mascot" />
+</td>
+</tr>
 </table>
