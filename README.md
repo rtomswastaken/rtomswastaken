@@ -4,10 +4,6 @@
 
 
 <!-- ==================== ABOUT ME ==================== -->
-<p align="center">
-  <img src="./assets/pokeball.svg" width="18" height="18" alt="pokeball" />&nbsp;
-  <strong style="font-size: 1.25rem;"><i>About Me</i></strong>
-</p>
 
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
   <tr style="border: none;">
