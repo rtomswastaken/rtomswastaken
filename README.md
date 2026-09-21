@@ -11,7 +11,7 @@
 
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
   <tr style="border: none;">
-    <td width="38%" align="center" valign="middle" style="border: none; padding-right: 20px;">
+    <td width="38%" align="center" valign="middle" style="border: none; padding-right: 20px; background-color:#03468f;">
       <img src="./assets/avatar.png" alt="Richardsen Thomas Mascot"style="width: 100%; max-width: 420px; height: auto; display: block; margin: auto;"/>
     </td>
     <td width="62%" valign="middle" style="border: none; font-size: 1rem; line-height: 1.7; color: #c9d1d9;">
