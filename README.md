@@ -38,13 +38,10 @@
 <table width="100%">
 <tr>
 <td width="33%" valign="top">
-<a href="https://github.com/rtomswastaken/chattui" style="text-decoration:none;">
-<b><font size="4" color="#58a6ff">chatTUI</font></b>
-</a>
 <a href="https://github.com/rtomswastaken/chattui">
 <img src="./buttons/status-building.svg" alt="Building" height="18" align="right" />
 </a>
-<br/><br/>
+<h3><a href="https://github.com/rtomswastaken/chattui">chatTUI</a></h3>
 A lightweight, decentralized real-time terminal chat platform built from scratch in Go. Features rich TUI navigation, private networking over Tailscale, SQLite persistence, and channel-based rooms.
 <br/><br/>
 <a href="https://github.com/rtomswastaken/chattui">
@@ -55,17 +52,16 @@ A lightweight, decentralized real-time terminal chat platform built from scratch
 </a>
 <br/><br/>
 <div align="right">
-<a href="https://github.com/rtomswastaken/chattui" style="text-decoration:none; color:#58a6ff; font-weight:600;">GitHub &rarr;</a>
+<a href="https://github.com/rtomswastaken/chattui">
+<img src="./buttons/github.svg" alt="GitHub" height="28" />
+</a>
 </div>
 </td>
 <td width="33%" valign="top">
-<a href="https://github.com/rtomswastaken/Oriah-IDE" style="text-decoration:none;">
-<b><font size="4" color="#58a6ff">Oriah IDE</font></b>
-</a>
 <a href="https://github.com/rtomswastaken/Oriah-IDE">
 <img src="./buttons/status-building.svg" alt="Building" height="18" align="right" />
 </a>
-<br/><br/>
+<h3><a href="https://github.com/rtomswastaken/Oriah-IDE">Oriah IDE</a></h3>
 An all-in-one agentic terminal IDE unifying diverse AI coding models and autonomous agents within a single customizable terminal workspace with multi-tab editing and live execution.
 <br/><br/>
 <a href="https://github.com/rtomswastaken/Oriah-IDE">
@@ -75,17 +71,16 @@ An all-in-one agentic terminal IDE unifying diverse AI coding models and autonom
 </a>
 <br/><br/>
 <div align="right">
-<a href="https://github.com/rtomswastaken/Oriah-IDE" style="text-decoration:none; color:#58a6ff; font-weight:600;">GitHub &rarr;</a>
+<a href="https://github.com/rtomswastaken/Oriah-IDE">
+<img src="./buttons/github.svg" alt="GitHub" height="28" />
+</a>
 </div>
 </td>
 <td width="33%" valign="top">
-<a href="https://github.com/rtomswastaken/Time-Table-Thingy" style="text-decoration:none;">
-<b><font size="4" color="#58a6ff">Time Table Thingy</font></b>
-</a>
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
 <img src="./buttons/status-ideation.svg" alt="Ideation" height="18" align="right" />
 </a>
-<br/><br/>
+<h3><a href="https://github.com/rtomswastaken/Time-Table-Thingy">Time Table Thingy</a></h3>
 An intelligent timetable generation system designed to optimize academic scheduling through automated constraint-solving rather than rigid manual templates.
 <br/><br/>
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
@@ -95,7 +90,9 @@ An intelligent timetable generation system designed to optimize academic schedul
 </a>
 <br/><br/>
 <div align="right">
-<a href="https://github.com/rtomswastaken/Time-Table-Thingy" style="text-decoration:none; color:#58a6ff; font-weight:600;">GitHub &rarr;</a>
+<a href="https://github.com/rtomswastaken/Time-Table-Thingy">
+<img src="./buttons/github.svg" alt="GitHub" height="28" />
+</a>
 </div>
 </td>
 </tr>
