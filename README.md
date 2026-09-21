@@ -18,16 +18,15 @@
       Hello! My name is <b>Richardsen Thomas</b>, and I am a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>
       I am someone who really likes turning ideas into things that actually work. I love exploring <b>Artificial Intelligence, software development, design, and creative technology</b> — anything that lets me build something innovative.<br/><br/>
       I work across both the creative and technical parts of projects: writing code, designing interfaces, and discovering unconventional ways to solve problems. Constantly building, learning from curiosity, and exploring new frontiers.
-    </td>
-  </tr>
-</table>
 
-
-<p align="center">
+  <p align="center">
   <a href="https://linkedin.com/in/richardsenthomas"><img src="./buttons/linkedin.svg" alt="LinkedIn" height="34" /></a>&nbsp;
   <a href="https://instagram.com/rtoooms"><img src="./buttons/instagram.svg" alt="Instagram" height="34" /></a>&nbsp;
   <a href="mailto:richardsenthomas888@gmail.com"><img src="./buttons/gmail.svg" alt="Gmail" height="34" /></a>
-</p>
+  </p>
+    </td>
+  </tr>
+</table>
 
 <br/>
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
