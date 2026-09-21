@@ -71,6 +71,7 @@ An all-in-one agentic terminal IDE unifying diverse AI coding models and autonom
 <img src="https://img.shields.io/badge/AI%20AGENTS-122b4d?style=for-the-badge&amp;logo=openai&amp;logoColor=white" alt="AI Agents" height="20" />
 </a>
 <br/><br/>
+<br/><br/>
 <div align="left">
 <a href="https://github.com/rtomswastaken/Oriah-IDE">
 <img src="./buttons/github.svg" alt="GitHub" height="28" />
@@ -90,6 +91,7 @@ An intelligent timetable generation system designed to optimize academic schedul
 <img src="https://img.shields.io/badge/SYSTEM%20DESIGN-0d233a?style=for-the-badge&amp;logo=figma&amp;logoColor=white" alt="System Design" height="20" />
 <img src="https://img.shields.io/badge/OPTIMIZATION-0d233a?style=for-the-badge&amp;logo=scipy&amp;logoColor=white" alt="Optimization" height="20" />
 </a>
+<br/><br/>
 <br/><br/>
 <div align="left">
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
