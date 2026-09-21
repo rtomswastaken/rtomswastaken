@@ -11,10 +11,13 @@
       <img src="./assets/avatar.png" alt="Richardsen Thomas Mascot"style="width: 100%; max-width: 420px; height: auto; display: block; margin: auto;"/>
     </td>
     <td width="62%" valign="middle" style="border: none; font-size: 1rem; line-height: 1.7; color: #c9d1d9;">
-      Hello! My name is <b>Richardsen Thomas</b>, and I am a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>
-      I am someone who really likes turning ideas into things that actually work. I love exploring <b>Artificial Intelligence, software development, design, and creative technology</b> — anything that lets me build something innovative.<br/><br/>
-      I work across both the creative and technical parts of projects: writing code, designing interfaces, and discovering unconventional ways to solve problems. Constantly building, learning from curiosity, and exploring new frontiers.
-      <br/>
+      Hello! I'm <b>Richardsen Thomas</b> — a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>I like turning random ideas into things that <i>probably shouldn't work, but somehow do</i>. I'm into <b>Artificial Intelligence, software development, UI/UX, creative technology</b>, and pretty much anything that lets me build cool stuff and break it 14 minutes later.<br/><br/>
+I bounce between <b>code, design, terminals, AI, and questionable ideas</b> on a daily basis. One minute I'm building an app, the next I'm redesigning a button because it looked at me funny.<br/><br/>
+Most of my projects start with <i>"wait... what if I tried this?"</i> and end with a suspicious amount of caffeine, 37 browser tabs, and a Git commit called <code>final-final-v2-actually-final</code>.<br/><br/>
+
+Currently <b>building, breaking, learning, experimenting</b> and occasionally pretending I understand what the error message is trying to tell me.<br/><br/>
+
+<i>Making things. Making them pretty. Making AI do stuff. Debugging at 2AM.</i>      <br/>
       <br/>
   <p align="center">
   <a href="https://linkedin.com/in/richardsenthomas"><img src="./buttons/linkedin.svg" alt="LinkedIn" height="34" /></a>&nbsp;
@@ -134,6 +137,9 @@ rule engines.
   <img src="https://img.shields.io/badge/ZSH-0b1a2e?style=for-the-badge&logo=zsh&logoColor=F15A24" alt="Zsh" />
   <img src="https://img.shields.io/badge/HTML5-0b1a2e?style=for-the-badge&logo=html5&logoColor=E34F26" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-0b1a2e?style=for-the-badge&logo=css3&logoColor=1572B6" alt="CSS3" />
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/PYTORCH-122b4d?style=for-the-badge&logo=pytorch&logoColor=EE4C2C" alt="PyTorch" />
   <img src="https://img.shields.io/badge/TENSORFLOW-122b4d?style=for-the-badge&logo=tensorflow&logoColor=FF6F00" alt="TensorFlow" />
   <img src="https://img.shields.io/badge/OPENCV-122b4d?style=for-the-badge&logo=opencv&logoColor=5C3EE8" alt="OpenCV" />
@@ -203,19 +209,58 @@ rule engines.
 
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
   <tr style="border: none;">
-    <td align="center" valign="middle" style="border: none; padding: 10px 25px;">
-      <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
-        <b>Designer &amp; Developer</b> experimenting at the edge of tech &amp; creativity.
-      </p>
-      <p style="font-style: italic; color: #8b949e; font-size: 0.95rem; margin-bottom: 14px;">
-        “I am always building things. Sometimes I break everything. That is just part of the process.”
-      </p>
-      <p style="font-size: 0.95rem; color: #58a6ff; letter-spacing: 1px;">
-        <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b>
-      </p>
-    </td>
-    <td width="170" align="center" valign="middle" style="border: none; padding-left: 10px;">
-      <img src="./assets/mascot.png" width="160" alt="Turtle Mascot" />
-    </td>
+
+  <td width="50%" valign="top" style="border: none; padding: 15px 25px;">
+
+  <h3>Hobbies &amp; Things I Somehow Have Time For</h3>
+
+  <p>
+    When I'm not writing code, I'm usually doing something creative.
+    I enjoy <b>photography, videography, drawing, doodling, designing</b>,
+    and anything involving <b>cars</b>.
+  </p>
+
+  <p>
+    I also like driving around with absolutely no productive reason,
+    experimenting with visual ideas, and turning random thoughts into
+    designs that probably started as a doodle.
+  </p>
+
+  <p>
+    Basically, if it involves <b>creating, designing, driving, or
+    experimenting</b>, there's a good chance I'm interested.
+  </p>
+
+  </td>
+
+  <td width="50%" valign="top" style="border: none; padding: 15px 25px;">
+
+  <h3>Goals &amp; What I'm Working Towards</h3>
+
+  <p>
+    I'm working towards becoming genuinely good at <b>AI</b> and becoming
+    a stronger all-round developer along the way.
+  </p>
+
+  <p>
+    I want to build things around <b>AI agents, games, Mac apps,
+    enterprise technology</b>, and whatever interesting problem catches
+    my attention next.
+  </p>
+
+  <p>
+    I'm also working towards becoming an active part of the
+    <b>open-source community</b> — fixing bugs, maintaining projects,
+    contributing to AI/ML projects, and helping make things better
+    through both <b>engineering and design</b>.
+  </p>
+
+  <p>
+    <i>Long term: build weird but useful things, make them actually good,
+    and hopefully contribute more than I break.</i>
+  </p>
+
+  </td>
+
   </tr>
 </table>
