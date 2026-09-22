@@ -31,7 +31,6 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 <br/>
 
 <!-- ==================== CURRENTLY BUILDING ==================== -->
-<!-- ==================== CURRENTLY BUILDING ==================== -->
 <p align="center">
   <strong style="font-size: 1.25rem;"><i>Currently Building</i></strong>
 </p>
