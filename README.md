@@ -43,7 +43,7 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 <p align="right" style="margin-top: 4px; margin-bottom: 12px;">
   <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
     <img src="./buttons/status-flagship.svg" alt="Flagship" height="20" />
-  </a>&nbsp;
+  </a>
   <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
     <img src="./buttons/status-building.svg" alt="Building" height="20" />
   </a>
@@ -93,9 +93,7 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 
 </td>
 </tr>
-</table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
 <tr style="border: none;">
 <!-- ==================== chatTUI ==================== -->
 <td width="33.33%" valign="top" style="border: none; padding: 10px 12px;">
