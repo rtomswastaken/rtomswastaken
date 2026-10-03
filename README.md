@@ -40,7 +40,7 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 <tr style="border: none;">
 <td width="100%" valign="top" style="border: none; padding: 20px 24px; background-color: #0b1a2e;">
 
-<p align="center" style="margin-top: 4px; margin-bottom: 12px;">
+<p align="right" style="margin-top: 4px; margin-bottom: 12px;">
   <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
     <img src="./buttons/status-flagship.svg" alt="Flagship" height="20" />
   </a>&nbsp;
@@ -94,13 +94,6 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 </td>
 </tr>
 </table>
-
-<br/>
-
-<!-- ==================== OTHER PROJECTS ==================== -->
-<p align="center" style="margin-top: 10px; margin-bottom: 12px;">
-  <strong style="font-size: 0.95rem; color: #8b949e; letter-spacing: 1px;"><i>OTHER PROJECTS</i></strong>
-</p>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
 <tr style="border: none;">
