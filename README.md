@@ -35,6 +35,73 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
   <strong style="font-size: 1.25rem;"><i>Currently Building</i></strong>
 </p>
 
+<!-- ==================== ZOE AI (FLAGSHIP SUPER-PROJECT) ==================== -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
+<tr style="border: none;">
+<td width="100%" valign="top" style="border: none; padding: 20px 24px; background-color: #0b1a2e;">
+
+<p align="center" style="margin-top: 4px; margin-bottom: 12px;">
+  <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
+    <img src="./buttons/status-flagship.svg" alt="Flagship" height="20" />
+  </a>&nbsp;
+  <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
+    <img src="./buttons/status-building.svg" alt="Building" height="20" />
+  </a>
+</p>
+
+<h2 align="center" style="margin-top: 6px; margin-bottom: 6px; border-bottom: none;">
+  <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1" style="color: #58a6ff; text-decoration: none;">ZOE AI</a>
+</h2>
+
+<p align="center" style="font-size: 1.05rem; color: #e6edf3; margin-top: 0; margin-bottom: 6px;">
+  <b>Personal Local Computer-Use AI for macOS</b>
+</p>
+
+<p align="center" style="font-size: 0.9rem; color: #8b949e; margin-top: 0; margin-bottom: 16px;">
+  <i>100% Local &nbsp;•&nbsp; Apple Silicon &nbsp;•&nbsp; Voice &nbsp;•&nbsp; Vision &nbsp;•&nbsp; Computer Control</i>
+</p>
+
+<p style="font-size: 0.95rem; line-height: 1.7; color: #c9d1d9; margin-top: 0; margin-bottom: 14px;">
+  A private, on-device AI assistant and computer-use agent built for Apple Silicon macOS. Zoe combines local voice interaction, vision, LLM reasoning, and native macOS automation to understand commands and interact with the computer directly — without relying on cloud AI APIs.
+</p>
+
+<ul style="line-height: 1.8; color: #c9d1d9; font-size: 0.95rem; margin-top: 0; margin-bottom: 16px; padding-left: 20px;">
+  <li><b>Local Voice</b> — wake-word detection and on-device speech recognition.</li>
+  <li><b>Local Vision</b> — screen perception using a local vision model.</li>
+  <li><b>Computer Control</b> — native PyObjC / Quartz interaction with macOS.</li>
+  <li><b>Notch Interface</b> — reactive MacBook notch UI with ambient visual feedback.</li>
+</ul>
+
+<p align="center" style="margin-top: 14px; margin-bottom: 16px;">
+  <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
+    <img src="https://img.shields.io/badge/PYTHON-0b1a2e?style=for-the-badge&amp;logo=python&amp;logoColor=3776AB" alt="Python" height="20" />
+    <img src="https://img.shields.io/badge/APPLE%20SILICON-0b1a2e?style=for-the-badge&amp;logo=apple&amp;logoColor=white" alt="Apple Silicon" height="20" />
+    <img src="https://img.shields.io/badge/OLLAMA-0b1a2e?style=for-the-badge&amp;logo=ollama&amp;logoColor=white" alt="Ollama" height="20" />
+    <img src="https://img.shields.io/badge/LOCAL%20LLM-0b1a2e?style=for-the-badge&amp;logo=meta&amp;logoColor=0081FB" alt="Local LLM" height="20" />
+    <img src="https://img.shields.io/badge/COMPUTER%20VISION-0b1a2e?style=for-the-badge&amp;logo=opencv&amp;logoColor=5C3EE8" alt="Computer Vision" height="20" />
+    <img src="https://img.shields.io/badge/PYOBJC-0b1a2e?style=for-the-badge&amp;logo=python&amp;logoColor=F5C518" alt="PyObjC" height="20" />
+    <img src="https://img.shields.io/badge/QUARTZ-0b1a2e?style=for-the-badge&amp;logo=apple&amp;logoColor=999999" alt="Quartz" height="20" />
+    <img src="https://img.shields.io/badge/SQLITE-0b1a2e?style=for-the-badge&amp;logo=sqlite&amp;logoColor=003B57" alt="SQLite" height="20" />
+  </a>
+</p>
+
+<p align="center" style="margin-top: 14px; margin-bottom: 4px;">
+  <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
+    <img src="./buttons/view-project.svg" alt="VIEW PROJECT →" height="32" />
+  </a>
+</p>
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+<!-- ==================== OTHER PROJECTS ==================== -->
+<p align="center" style="margin-top: 10px; margin-bottom: 12px;">
+  <strong style="font-size: 0.95rem; color: #8b949e; letter-spacing: 1px;"><i>OTHER PROJECTS</i></strong>
+</p>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
 <tr style="border: none;">
 <!-- ==================== chatTUI ==================== -->
