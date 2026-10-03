@@ -7,8 +7,8 @@
 
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
   <tr style="border: none;">
-    <td width="42%" align="center" valign="bottom" style="border: none; padding-right: 20px; background-color:#03468f;">
-      <img src="./assets/avatar.png" alt="Richardsen Thomas Mascot"style="width: 100%; max-width: 720px; height: auto; display: block; margin: auto;"/>
+    <td width="38%" align="center" valign="middle" style="border: none; padding-right: 20px; background-color:#03468f;">
+      <img src="./assets/avatar.png" alt="Richardsen Thomas Mascot" style="width: 100%; max-width: 420px; height: auto; display: block; margin: auto;"/>
     </td>
     <td width="62%" valign="middle" style="border: none; font-size: 1rem; line-height: 1.7; color: #c9d1d9;">
       Hello! I'm <b>Richardsen Thomas</b> — a <b>Designer, Developer &amp; Dreamer</b>.<br/><br/>I like turning random ideas into things that probably shouldn't work, but somehow do. I'm into <b>Artificial Intelligence, software development, UI/UX, creative technology</b>, and pretty much anything that lets me build cool stuff.<br/><br/>
@@ -28,7 +28,6 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 <br/>
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
 <br/>
-<br/>
 
 <!-- ==================== CURRENTLY BUILDING ==================== -->
 <p align="center">
@@ -37,8 +36,8 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 
 <!-- ==================== ZOE AI (FLAGSHIP SUPER-PROJECT) ==================== -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
-<tr style="border: none;" columnspan=3>
-<td width="100%" valign="top" style="border: none; padding: 20px 24px; background-color: #0b1a2e;">
+<tr style="border: none;">
+<td colspan="3" width="100%" valign="top" style="border: none; padding: 20px 24px; background-color: #0b1a2e;">
 
 <p align="right" style="margin-top: 4px; margin-bottom: 12px;">
   <a href="https://github.com/rtomswastaken/zoe-alpha-v0.1">
@@ -261,7 +260,7 @@ rule engines.
 
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
 <tr style="border: none;">
-<td align="center" valign="middle" style="border: none; padding: 10px 25px;">
+<td width="78%" align="center" valign="middle" style="border: none; padding: 10px 25px;">
 <p style="font-size: 1.1rem; color: #e6edf3; margin-bottom: 8px;">
 <b>Designer &amp; Developer</b> experimenting at the edge of tech, games &amp; creative design.
 </p>
@@ -271,7 +270,7 @@ When I’m not coding, I’m usually doing something creative — photography, v
 <b>Game Development</b> &nbsp;•&nbsp; <b>3D &amp; Motion Design</b> &nbsp;•&nbsp; <b>Creative Tech</b> &nbsp;•&nbsp; <b>Tortoise Enthusiast</b>
 </p>
 </td>
-<td width="170" align="center" valign="middle" style="border: none; padding-left: 10px;">
+<td width="22%" align="center" valign="middle" style="border: none; padding-left: 10px;">
 <img src="./assets/mascot.png" width="160" alt="Turtle Mascot" />
 </td>
 </tr>
