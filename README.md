@@ -37,7 +37,7 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 
 <!-- ==================== ZOE AI (FLAGSHIP SUPER-PROJECT) ==================== -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
-<tr style="border: none;">
+<tr style="border: none;" columnspan=3>
 <td width="100%" valign="top" style="border: none; padding: 20px 24px; background-color: #0b1a2e;">
 
 <p align="right" style="margin-top: 4px; margin-bottom: 12px;">
