@@ -131,7 +131,7 @@ live execution.
 <!-- ==================== Time Table Thingy ==================== -->
 <td width="33.33%" valign="top" style="border: none; padding: 10px 12px;">
 <a href="https://github.com/rtomswastaken/Time-Table-Thingy">
-<img src="./buttons/status-ideation.svg" alt="Ideation" height="18" align="right" />
+<img src="./buttons/status-building.svg" alt="Ideation" height="18" align="right" />
 </a>
 <h3><a href="https://github.com/rtomswastaken/Time-Table-Thingy">Time Table Thingy</a></h3>
 An intelligent timetable generation system designed to optimize academic scheduling
