@@ -256,20 +256,6 @@ rule engines.
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
 <br/>
 
-<!-- ==================== STATISTICS ==================== -->
-<p align="center">
-  <strong style="font-size: 1.25rem;"><i>Statistics</i></strong>
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=rtomswastaken&theme=tokyonight&background=080f1a&border=1f6feb&stroke=58a6ff&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" alt="Richardsen Thomas Activity &amp; Streak Stats" />
-</p>
-
-<br/>
-<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
-<br/>
-
-
 <!-- ==================== HOBBIES & GOALS ==================== -->
 <p align="center">
   <strong style="font-size: 1.25rem;"><i>Hobbies &amp; Goals</i></strong>
