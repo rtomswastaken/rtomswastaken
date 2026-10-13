@@ -239,6 +239,23 @@ rule engines.
 
 <br/>
 
+<!-- ==================== CODING ACTIVITY ==================== -->
+<p align="center">
+  <strong style="font-size: 1.25rem;"><i>Coding Activity</i></strong>
+</p>
+
+<p align="center">
+  <img
+    src="./assets/coding-activity.svg"
+    alt="RTOMS coding activity over the last 14 days"
+    width="840"
+  />
+</p>
+
+<br/>
+<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
+
 <!-- ==================== STATISTICS ==================== -->
 <p align="center">
   <strong style="font-size: 1.25rem;"><i>Statistics</i></strong>

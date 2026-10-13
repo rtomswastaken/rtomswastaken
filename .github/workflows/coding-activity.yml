@@ -1,0 +1,66 @@
+name: Refresh WakaTime Coding Activity Graph
+
+'on':
+  schedule:
+    # Run approximately once every hour (at minute 0)
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+# Prevent concurrent runs from conflicting
+concurrency:
+  group: coding-activity
+  cancel-in-progress: false
+
+# Minimal permissions required to commit and push updated SVG
+permissions:
+  contents: write
+
+jobs:
+  update-activity-graph:
+    name: Generate and Update Activity SVG
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify test suite
+        run: |
+          python3 -m unittest discover -s tests -p "test_*.py"
+
+      - name: Generate coding activity graph
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          WAKATIME_JSON_URL: ${{ secrets.WAKATIME_JSON_URL }}
+        run: |
+          python3 scripts/generate_activity_graph.py --output assets/coding-activity.svg
+
+      - name: Validate generated SVG
+        run: |
+          python3 -c "
+          import xml.etree.ElementTree as ET
+          tree = ET.parse('assets/coding-activity.svg')
+          root = tree.getroot()
+          assert root.tag.endswith('svg'), 'Root element is not svg'
+          assert 'viewBox' in root.attrib, 'viewBox missing'
+          print('SVG validation successful.')
+          "
+
+      - name: Commit and push changes
+        run: |
+          if git diff --quiet assets/coding-activity.svg; then
+            echo "No changes in coding activity graph. Skipping commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/coding-activity.svg
+            git commit -m "chore(activity): update WakaTime coding activity graph [skip ci]"
+            git push
+          fi
