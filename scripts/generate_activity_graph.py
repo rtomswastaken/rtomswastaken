@@ -807,10 +807,6 @@ def generate_svg(
 
     <!-- SECTION 2: CURRENT STREAK -->
     <g transform="translate(435, 335)">
-      <!-- Flame Icon -->
-      <g transform="translate(0, 10)">
-        <path d="M 0 -8 C 0 -8 0.74 -5.35 0.74 -3.2 C 0.74 -1.14 -0.61 0.53 -2.67 0.53 C -4.73 0.53 -6.29 -1.14 -6.29 -3.2 L -6.26 -3.56 C -8.28 -1.16 -9.5 1.95 -9.5 5.32 C -9.5 9.74 -5.92 13.33 -1.5 13.33 C 2.92 13.33 6.5 9.74 6.5 5.32 C 6.5 -0.07 3.91 -4.88 0 -8 Z" fill="#58a6ff" />
-      </g>
       <!-- Circular Ring -->
       <circle cx="0" cy="36" r="23" fill="none" stroke="#58a6ff" stroke-width="3" />
       <!-- Big Number Inside Ring -->
