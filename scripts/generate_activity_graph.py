@@ -514,9 +514,8 @@ def generate_svg(
 
   <!-- Header Section -->
   <g transform="translate(60, 32)">
-    <circle cx="5" cy="5" r="4.5" fill="#58a6ff" />
-    <text x="18" y="9" fill="#58a6ff" font-size="13" font-weight="700" letter-spacing="1.5" class="mono">CODING ACTIVITY</text>
-    <text x="18" y="24" fill="#8b949e" font-size="10" letter-spacing="0.8" class="mono">LAST 14 DAYS • WAKATIME</text>
+    <text x="18" y="9" fill="#58a6ff" font-size="15" font-weight="700" letter-spacing="1.5" class="mono">Daily Dev Time</text>
+    <text x="18" y="24" fill="#8b949e" font-size="9" letter-spacing="0.8" class="mono">WAKATIME | past 14 days</text>
   </g>
 
 {placeholder_badge}
@@ -564,7 +563,7 @@ def generate_svg(
 
   <!-- Footer Metadata -->
   <g id="footer-meta" class="mono">
-    <text x="{chart_left}" y="312" fill="#484f58" font-size="9">AUTOMATION • GITHUB ACTIONS</text>
+    <text x="{chart_left}" y="312" fill="#484f58" font-size="9">@rtomswastaken</text>
     <text x="{chart_right}" y="312" fill="#484f58" font-size="9" text-anchor="end">UPDATED {gen_timestamp}</text>
   </g>
 </svg>"""
