@@ -247,7 +247,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
         self.assertEqual(root.attrib.get("viewBox"), "0 0 840 330")
 
         # Check required visual components
-        self.assertIn("CODING ACTIVITY", svg)
+        self.assertIn("Daily Dev Time", svg)
         self.assertIn("14-DAY TOTAL", svg)
         self.assertIn("DAILY AVERAGE", svg)
         self.assertIn("TODAY", svg)
