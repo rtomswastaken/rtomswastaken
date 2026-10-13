@@ -39,6 +39,7 @@ jobs:
         env:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           WAKATIME_JSON_URL: ${{ secrets.WAKATIME_JSON_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/generate_activity_graph.py --output assets/coding-activity.svg
 

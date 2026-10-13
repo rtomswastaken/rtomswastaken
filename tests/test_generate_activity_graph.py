@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Unit and Integration Tests for RTOMS WakaTime Activity Graph Generator.
+Unit and Integration Tests for RTOMS Activity Graph & GitHub Contribution Statistics Generator.
 
 Tests:
 1. Representative WakaTime responses (both API summaries and public share JSON)
@@ -8,10 +8,15 @@ Tests:
 3. Missing or malformed API responses
 4. Authentication failures (401, 403) and rate limits (429)
 5. Date handling across 14-day window
-6. SVG generation and XML validity
+6. SVG generation and XML validity (including Daily Dev Time title and Contribution panel)
 7. No-change detection avoiding unnecessary commits
 8. Credential protection and masking
 9. README image path validity
+10. GitHub contribution totals and period ranges
+11. Current streak calculations (active today, ongoing from yesterday, broken)
+12. Longest streak calculations across multi-day periods
+13. Empty contribution calendars
+14. GitHub GraphQL API error handling (401, 403, 429, malformed response)
 """
 
 import datetime
@@ -24,7 +29,6 @@ import unittest
 from unittest.mock import MagicMock, patch
 import xml.etree.ElementTree as ET
 
-# Add scripts directory to path
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.join(REPO_ROOT, "scripts"))
 
@@ -33,13 +37,18 @@ from generate_activity_graph import (
     AuthenticationError,
     AuthorizationError,
     ConfigurationError,
+    GitHubAPIError,
     RateLimitError,
     ValidationError,
     compute_activity_hash,
+    create_initial_placeholder_contributions,
+    fetch_github_contributions,
     fetch_wakatime_data,
     format_duration,
+    format_streak_range,
     generate_svg,
     get_existing_svg_hash,
+    parse_github_contributions,
     parse_wakatime_data,
     sanitize_for_log,
     update_graph_file,
@@ -120,6 +129,46 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             ]
         }
 
+        # 3. Representative GitHub GraphQL Contributions Response
+        self.sample_github_graphql = {
+            "data": {
+                "user": {
+                    "contributionsCollection": {
+                        "contributionCalendar": {
+                            "totalContributions": 154,
+                            "weeks": [
+                                {
+                                    "contributionDays": [
+                                        {"date": "2025-10-12", "contributionCount": 0},
+                                        {"date": "2025-10-13", "contributionCount": 2},
+                                        {"date": "2025-10-14", "contributionCount": 0},
+                                    ]
+                                },
+                                {
+                                    "contributionDays": [
+                                        {"date": "2026-09-20", "contributionCount": 0},
+                                        {"date": "2026-09-21", "contributionCount": 5},
+                                        {"date": "2026-09-22", "contributionCount": 3},
+                                        {"date": "2026-09-23", "contributionCount": 4},
+                                        {"date": "2026-09-24", "contributionCount": 2},
+                                        {"date": "2026-09-25", "contributionCount": 0},
+                                    ]
+                                },
+                                {
+                                    "contributionDays": [
+                                        {"date": "2026-10-11", "contributionCount": 1},
+                                        {"date": "2026-10-12", "contributionCount": 2},
+                                        {"date": "2026-10-13", "contributionCount": 1},
+                                        {"date": "2026-10-14", "contributionCount": 3},
+                                    ]
+                                },
+                            ],
+                        }
+                    }
+                }
+            }
+        }
+
     # ----------------------------------------------------
     # TEST 1: Representative WakaTime Response Parsing
     # ----------------------------------------------------
@@ -130,11 +179,8 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
         self.assertEqual(parsed["start_date"], "2026-09-30")
         self.assertEqual(parsed["end_date"], "2026-10-13")
 
-        # Today's hours (Oct 13): 19800s = 5.5h = "5h 30m"
         self.assertEqual(parsed["today_seconds"], 19800.0)
         self.assertEqual(parsed["today_formatted"], "5h 30m")
-
-        # Total seconds: sum of all days
         self.assertGreater(parsed["total_seconds"], 0)
         self.assertIn("h", parsed["total_formatted"])
         self.assertIn("h", parsed["daily_avg_formatted"])
@@ -144,13 +190,11 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
     # ----------------------------------------------------
     def test_missing_and_empty_days_handled_as_zero(self):
         parsed = parse_wakatime_data(self.sample_api_summaries, window_days=14, reference_date=self.ref_date)
-        # Oct 03 was missing from data list -> should be 0.0 seconds
         oct_03 = next(d for d in parsed["days"] if d["date"] == "2026-10-03")
         self.assertEqual(oct_03["seconds"], 0.0)
         self.assertEqual(oct_03["hours"], 0.0)
         self.assertEqual(oct_03["formatted"], "0m")
 
-        # Oct 08 was explicitly 0 seconds in payload
         oct_08 = next(d for d in parsed["days"] if d["date"] == "2026-10-08")
         self.assertEqual(oct_08["seconds"], 0.0)
         self.assertEqual(oct_08["formatted"], "0m")
@@ -189,7 +233,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             parse_wakatime_data({"data": "not a list"}, window_days=14)
 
     # ----------------------------------------------------
-    # TEST 5: Authentication and Error Handling
+    # TEST 5: Authentication and Error Handling (WakaTime)
     # ----------------------------------------------------
     def test_missing_credentials_raises_configuration_error(self):
         with self.assertRaises(ConfigurationError):
@@ -239,21 +283,27 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
     # ----------------------------------------------------
     def test_svg_generation_valid_xml(self):
         parsed = parse_wakatime_data(self.sample_api_summaries, window_days=14, reference_date=self.ref_date)
-        svg = generate_svg(parsed)
+        gh_parsed = parse_github_contributions(self.sample_github_graphql)
+        svg = generate_svg(parsed, contrib_data=gh_parsed)
 
-        # Parse with XML parser to assert validity
         root = ET.fromstring(svg)
         self.assertTrue(root.tag.endswith("svg"))
-        self.assertEqual(root.attrib.get("viewBox"), "0 0 840 330")
+        self.assertEqual(root.attrib.get("viewBox"), "0 0 840 490")
 
-        # Check required visual components
+        # Visual components: Daily Dev Time and WakaTime stats
         self.assertIn("Daily Dev Time", svg)
         self.assertIn("14-DAY TOTAL", svg)
         self.assertIn("DAILY AVERAGE", svg)
         self.assertIn("TODAY", svg)
         self.assertIn("data-activity-hash", root.attrib)
 
-        # Check for tooltips (title tags inside data dots)
+        # Contribution statistics panel components
+        self.assertIn("TOTAL CONTRIBUTIONS", svg)
+        self.assertIn("CURRENT STREAK", svg)
+        self.assertIn("LONGEST STREAK", svg)
+        self.assertIn("154", svg)
+
+        # Tooltips
         title_tags = root.findall(".//{http://www.w3.org/2000/svg}title")
         self.assertEqual(len(title_tags), 14)
         for t in title_tags:
@@ -272,18 +322,17 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             svg_path = os.path.join(tmpdir, "activity.svg")
             parsed = parse_wakatime_data(self.sample_api_summaries, window_days=14, reference_date=self.ref_date)
-            svg_1 = generate_svg(parsed, timestamp_override="2026-10-13 10:00 UTC")
+            gh_parsed = parse_github_contributions(self.sample_github_graphql)
 
-            # First write: must succeed
+            svg_1 = generate_svg(parsed, contrib_data=gh_parsed, timestamp_override="2026-10-13 10:00 UTC")
+
             written = update_graph_file(svg_path, svg_1, force=False)
             self.assertTrue(written)
 
-            # Second write with identical activity data: must be skipped
-            svg_2 = generate_svg(parsed, timestamp_override="2026-10-13 11:00 UTC")
+            svg_2 = generate_svg(parsed, contrib_data=gh_parsed, timestamp_override="2026-10-13 11:00 UTC")
             written_second = update_graph_file(svg_path, svg_2, force=False)
             self.assertFalse(written_second)
 
-            # Force flag overrides skip
             written_forced = update_graph_file(svg_path, svg_2, force=True)
             self.assertTrue(written_forced)
 
@@ -314,9 +363,148 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
     def test_readme_exists_and_relative_assets_path(self):
         readme_path = os.path.join(REPO_ROOT, "README.md")
         self.assertTrue(os.path.exists(readme_path), "README.md must exist in repository root")
-        # Relative image target
         target_svg = os.path.join(REPO_ROOT, "assets", "coding-activity.svg")
         self.assertTrue(os.path.abspath(target_svg).startswith(REPO_ROOT))
+
+    # ----------------------------------------------------
+    # TEST 11: GitHub Contributions Parsing & Totals
+    # ----------------------------------------------------
+    def test_github_contributions_totals_and_period(self):
+        gh_parsed = parse_github_contributions(self.sample_github_graphql)
+        self.assertEqual(gh_parsed["total"], 154)
+        self.assertIn("Oct 12, 2025", gh_parsed["period_range"])
+        self.assertIn("Present", gh_parsed["period_range"])
+
+    # ----------------------------------------------------
+    # TEST 12: Current & Longest Streak Calculations
+    # ----------------------------------------------------
+    def test_github_streak_calculations(self):
+        gh_parsed = parse_github_contributions(self.sample_github_graphql)
+        # Current streak: Oct 11 to Oct 14 (4 days)
+        self.assertEqual(gh_parsed["current_streak"], 4)
+        self.assertEqual(gh_parsed["current_range"], "Oct 11 - Oct 14")
+
+        # Longest streak: 4 days (Sep 21-24 or Oct 11-14)
+        self.assertEqual(gh_parsed["longest_streak"], 4)
+        self.assertIn(gh_parsed["longest_range"], ["Sep 21 - Sep 24", "Oct 11 - Oct 14"])
+
+    def test_github_streak_ongoing_from_yesterday(self):
+        # Scenario: Today (Oct 15) has 0 contributions so far, but yesterday (Oct 14) had 2.
+        # Active streak should be preserved as 4 days ending yesterday!
+        payload = {
+            "data": {
+                "user": {
+                    "contributionsCollection": {
+                        "contributionCalendar": {
+                            "totalContributions": 10,
+                            "weeks": [
+                                {
+                                    "contributionDays": [
+                                        {"date": "2026-10-11", "contributionCount": 1},
+                                        {"date": "2026-10-12", "contributionCount": 1},
+                                        {"date": "2026-10-13", "contributionCount": 1},
+                                        {"date": "2026-10-14", "contributionCount": 1},
+                                        {"date": "2026-10-15", "contributionCount": 0},  # today in progress
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+        res = parse_github_contributions(payload)
+        self.assertEqual(res["current_streak"], 4)
+        self.assertEqual(res["current_range"], "Oct 11 - Oct 14")
+
+    def test_github_streak_broken(self):
+        # Scenario: Both yesterday and today have 0 contributions -> streak is broken (0 days)
+        payload = {
+            "data": {
+                "user": {
+                    "contributionsCollection": {
+                        "contributionCalendar": {
+                            "totalContributions": 5,
+                            "weeks": [
+                                {
+                                    "contributionDays": [
+                                        {"date": "2026-10-11", "contributionCount": 1},
+                                        {"date": "2026-10-12", "contributionCount": 0},
+                                        {"date": "2026-10-13", "contributionCount": 0},
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+        res = parse_github_contributions(payload)
+        self.assertEqual(res["current_streak"], 0)
+        self.assertEqual(res["current_range"], "None")
+
+    # ----------------------------------------------------
+    # TEST 13: Empty Contribution Calendar
+    # ----------------------------------------------------
+    def test_github_empty_contributions(self):
+        payload = {
+            "data": {
+                "user": {
+                    "contributionsCollection": {
+                        "contributionCalendar": {
+                            "totalContributions": 0,
+                            "weeks": []
+                        }
+                    }
+                }
+            }
+        }
+        res = parse_github_contributions(payload)
+        self.assertEqual(res["total"], 0)
+        self.assertEqual(res["current_streak"], 0)
+        self.assertEqual(res["longest_streak"], 0)
+        self.assertEqual(res["period_range"], "None")
+
+    # ----------------------------------------------------
+    # TEST 14: GitHub API Error Handling
+    # ----------------------------------------------------
+    def test_github_missing_token_raises_configuration_error(self):
+        with patch.dict(os.environ, {}, clear=True):
+            with patch("generate_activity_graph.get_fallback_github_token", return_value=None):
+                with self.assertRaises(ConfigurationError):
+                    fetch_github_contributions(token=None)
+
+    @patch("generate_activity_graph._open_url_safely")
+    def test_github_api_401_raises_authentication_error(self, mock_open):
+        import urllib.error
+        mock_open.side_effect = urllib.error.HTTPError(
+            url="https://api.github.com/graphql",
+            code=401,
+            msg="Unauthorized",
+            hdrs={},
+            fp=None,
+        )
+        with self.assertRaises(AuthenticationError):
+            fetch_github_contributions(token="invalid_token")
+
+    @patch("generate_activity_graph._open_url_safely")
+    def test_github_api_429_raises_rate_limit_error(self, mock_open):
+        import urllib.error
+        mock_open.side_effect = urllib.error.HTTPError(
+            url="https://api.github.com/graphql",
+            code=429,
+            msg="Too Many Requests",
+            hdrs={},
+            fp=None,
+        )
+        with self.assertRaises(RateLimitError):
+            fetch_github_contributions(token="valid_token")
+
+    @patch("generate_activity_graph._open_url_safely")
+    def test_github_api_graphql_errors(self, mock_open):
+        mock_open.return_value = json.dumps({"errors": [{"message": "Field 'user' does not exist"}]}).encode("utf-8")
+        with self.assertRaises(GitHubAPIError):
+            fetch_github_contributions(token="test_token")
 
 
 if __name__ == "__main__":
