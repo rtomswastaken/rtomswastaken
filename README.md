@@ -2,14 +2,6 @@
   <img src="./assets/rtoms.svg" alt="richardsen thomas" width="100%" />
 </p>
 
-<p align="center">
-  <img
-    src="./assets/rz-fetch.svg"
-    alt="RTOMS developer profile rendered in a Fastfetch-inspired terminal"
-    width="100%"
-  />
-</p>
-
 <br/>
 
 
