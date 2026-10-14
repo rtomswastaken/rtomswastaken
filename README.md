@@ -26,29 +26,6 @@ Most of my projects start with <i>"wait... what if I tried this?"</i> and end wi
 </table>
 
 <br/>
-
-```text
-              .#%@@@@*            rtoms@github
-             .#@@@@@#             ─────────────────────────────────────
-     :.      *#%@@@*              OS         macOS (Apple Silicon)
-    +%.      .=@@@#::::::::::     HOST       MacBook Pro
-  .#@@#%%%@@@@@@@@@@@@@@@@@@@%:   USER       Richardsen Thomas (RTOMS)
- -%@@@@@@@@@@@@@@@@@@@@@@@@@@@@=  ROLE       AI & Software Developer
-=@@@@@@%##*++*@@@-:....    =@@@@  LOCATION   Kerala, India
-==@@%+:    =%@@@=          =@@@=  SHELL      zsh
- *#=      =#@@@*       :-=*@@@=   EDITOR     VS Code · Neovim
- .         =@@%   -+*%@@@@@@@-    LANGUAGES  Python · Go · TypeScript · Rust
-          .@@@%#.-@@@@@%#*+-.     AI / ML    PyTorch · Ollama · Local LLMs
-          *@@@@--@@@@@=           STACK      React · Next.js · FastAPI
-         -@@@%::%%%@@@@=          SYSTEMS    macOS · Linux (Arch, Fedora)
-        .%@@#. --  =%@@@*         PROJECTS   Zoe AI · chatTUI · Oriah IDE
-        *@@=         =%@@#.       STATUS     Building local AI agents
-       -@#:            =%@%:      UPTIME     Active · 100+ commits
-      .%+                -#%-     GITHUB     github.com/rtomswastaken
-      -:                   :*-    PALETTE    ■ ■ ■ ■ ■ ■ ■ ■
-```
-
-<br/>
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
 <br/>
 
@@ -301,3 +278,28 @@ When I’m not coding, I’m usually doing something creative — photography, v
 </td>
 </tr>
 </table>
+
+<br/>
+<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
+
+```text
+              .#%@@@@*            rtoms@github
+             .#@@@@@#             ─────────────────────────────────────
+     :.      *#%@@@*              OS         macOS (Apple Silicon)
+    +%.      .=@@@#::::::::::     HOST       MacBook Pro
+  .#@@#%%%@@@@@@@@@@@@@@@@@@@%:   USER       Richardsen Thomas (RTOMS)
+ -%@@@@@@@@@@@@@@@@@@@@@@@@@@@@=  ROLE       AI & Software Developer
+=@@@@@@%##*++*@@@-:....    =@@@@  LOCATION   Kerala, India
+==@@%+:    =%@@@=          =@@@=  SHELL      zsh
+ *#=      =#@@@*       :-=*@@@=   EDITOR     VS Code · Neovim
+ .         =@@%   -+*%@@@@@@@-    LANGUAGES  Python · Go · TypeScript · Rust
+          .@@@%#.-@@@@@%#*+-.     AI / ML    PyTorch · Ollama · Local LLMs
+          *@@@@--@@@@@=           STACK      React · Next.js · FastAPI
+         -@@@%::%%%@@@@=          SYSTEMS    macOS · Linux (Arch, Fedora)
+        .%@@#. --  =%@@@*         PROJECTS   Zoe AI · chatTUI · Oriah IDE
+        *@@=         =%@@#.       STATUS     Building local AI agents
+       -@#:            =%@%:      UPTIME     Active · 100+ commits
+      .%+                -#%-     GITHUB     github.com/rtomswastaken
+      -:                   :*-    PALETTE    ■ ■ ■ ■ ■ ■ ■ ■
+```
