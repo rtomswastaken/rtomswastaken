@@ -284,22 +284,69 @@ When I’m not coding, I’m usually doing something creative — photography, v
 <br/>
 
 ```text
-              .#%@@@@*            rtoms@github
-             .#@@@@@#             ─────────────────────────────────────
-     :.      *#%@@@*              OS         macOS (Apple Silicon)
-    +%.      .=@@@#::::::::::     HOST       MacBook Pro
-  .#@@#%%%@@@@@@@@@@@@@@@@@@@%:   USER       Richardsen Thomas (RTOMS)
- -%@@@@@@@@@@@@@@@@@@@@@@@@@@@@=  ROLE       AI & Software Developer
-=@@@@@@%##*++*@@@-:....    =@@@@  LOCATION   Kerala, India
-==@@%+:    =%@@@=          =@@@=  SHELL      zsh
- *#=      =#@@@*       :-=*@@@=   EDITOR     VS Code · Neovim
- .         =@@%   -+*%@@@@@@@-    LANGUAGES  Python · Go · TypeScript · Rust
-          .@@@%#.-@@@@@%#*+-.     AI / ML    PyTorch · Ollama · Local LLMs
-          *@@@@--@@@@@=           STACK      React · Next.js · FastAPI
-         -@@@%::%%%@@@@=          SYSTEMS    macOS · Linux (Arch, Fedora)
-        .%@@#. --  =%@@@*         PROJECTS   Zoe AI · chatTUI · Oriah IDE
-        *@@=         =%@@#.       STATUS     Building local AI agents
-       -@#:            =%@%:      UPTIME     Active · 100+ commits
-      .%+                -#%-     GITHUB     github.com/rtomswastaken
-      -:                   :*-    PALETTE    ■ ■ ■ ■ ■ ■ ■ ■
+RTOMS SYSTEM PROFILE
+Personal Workstation · AI · Infrastructure
+──────────────────────────────────────────────────────────────────────────
+
+                    ..'           RTOMS@MacBook-Pro
+                ,xNMM.            -----------------
+              .OMMMMo             Device      : MacBook Pro
+              lMM"                Chip        : Apple M1 Pro (10-core)
+    .;loddo:.  .olloddol;.        Arch        : ARM64 / Apple Silicon
+  cKMMMMMMMMMMNWMMMMMMMMMM0:      Memory      : 32 GB unified memory
+.KMMMMMMMMMMMMMMMMMMMMMMMWd.      Storage     : 169 GB available (APFS)
+XMMMMMMMMMMMMMMMMMMMMMMMX.        OS          : macOS (Darwin arm64)
+;MMMMMMMMMMMMMMMMMMMMMMMM:        Role        : Primary workstation & local AI
+:MMMMMMMMMMMMMMMMMMMMMMMM:        AI Runtime  : Ollama (Apple Silicon)
+.MMMMMMMMMMMMMMMMMMMMMMMMX.       AI Workload : Local LLM inference
+kMMMMMMMMMMMMMMMMMMMMMMMMWd.      AI Models   : qwen3:14b · qwen3-coder:30b
+'XMMMMMMMMMMMMMMMMMMMMMMMMMMk                   minicpm-v (vision)
+ 'XMMMMMMMMMMMMMMMMMMMMMMMMK.     Workflow    : Local-first development
+   kMMMMMMMMMMMMMMMMMMMMMMd       Detected CLI: Python 3.14 · Node.js · Git
+    ;KMMMMMMMWXXWMMMMMMMk.        IDE / Editor: VS Code · Neovim
+      "cooc*"    "*coo'           SSH Client  : Available (outbound)
+
+──────────────────────────────────────────────────────────────────────────
+
+           ..;,; .,;,.            RTOMS@Ubuntu-Server
+        .,lool: .ooooo,           -------------------
+       ;oo;:    .coool.           Device      : Acer Laptop (Repurposed)
+     ....         ''' ,l;         Processor   : Intel Pentium
+    :oooo,            'oo.        Memory      : 4 GB RAM
+    looooc            :oo'        Storage     : 256 GB SSD + 1 TB HDD
+     '::'             ,oo:        OS          : Ubuntu Server
+       ,.,       .... co,         Kernel      : Linux
+        lo:;.   :oooo; .          Role        : Self-hosted infrastructure
+         ':ooo; cooooc            Networking  : Tailscale mesh
+            '''  ''''             Access      : Headless / SSH
+
+──────────────────────────────────────────────────────────────────────────
+
+CLOUD INFRASTRUCTURE
+--------------------
+Provider    : Oracle Cloud
+Plan        : Free Tier
+Role        : Cloud infrastructure
+
+──────────────────────────────────────────────────────────────────────────
+
+INFRASTRUCTURE OVERVIEW
+-----------------------
+MacBook Pro (Development & Local AI)
+    │
+    │ Remote administration & networking (Tailscale / SSH)
+    ▼
+Acer Ubuntu Server (Self-hosted infrastructure)
+
+Oracle Cloud Free Tier (Separate cloud infrastructure)
+
+──────────────────────────────────────────────────────────────────────────
+
+DEVELOPMENT STACK & HARDWARE SUMMARY
+------------------------------------
+Hardware    : Apple M1 Pro (32 GB) · Intel Pentium (4 GB)
+Languages   : Python · JavaScript · HTML · CSS · SQL
+Tools       : Git · VS Code · Neovim · Node.js / npm
+AI / ML     : Ollama · Local LLMs (Apple Silicon)
+Infra       : Ubuntu Server · SSH · Tailscale · Oracle Cloud
 ```
