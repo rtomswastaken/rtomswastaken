@@ -184,6 +184,106 @@ def format_duration(seconds: float) -> str:
     return "0m"
 
 
+def format_all_time_duration(seconds: float) -> str:
+    """Format total seconds into an all-time string like '1,234h 56m' or '45m'."""
+    total_seconds = max(0, int(round(seconds)))
+    hours = total_seconds // 3600
+    minutes = (total_seconds % 3600) // 60
+
+    if hours > 0:
+        return f"{hours:,}h {minutes:02d}m" if minutes > 0 else f"{hours:,}h"
+    elif minutes > 0:
+        return f"{minutes}m"
+    elif total_seconds > 0:
+        return "< 1m"
+    return "0h 00m"
+
+
+def fetch_wakatime_all_time(
+    api_key: Optional[str] = None,
+    timeout: int = 20,
+) -> Dict[str, Any]:
+    """
+    Fetch lifetime all-time coding statistics from WakaTime API:
+    https://wakatime.com/api/v1/users/current/all_time_since_today
+    """
+    if not api_key:
+        raise ConfigurationError("WAKATIME_API_KEY is required to fetch all-time coding statistics.")
+
+    api_key_clean = api_key.strip()
+    url = "https://wakatime.com/api/v1/users/current/all_time_since_today"
+    headers = {
+        "User-Agent": "RTOMS-Coding-Activity-Graph/1.0 (+https://github.com/rtomswastaken/rtomswastaken)",
+        "Accept": "application/json",
+        "Authorization": f"Basic {base64.b64encode(api_key_clean.encode('utf-8')).decode('ascii')}",
+    }
+    req = urllib.request.Request(url, headers=headers, method="GET")
+
+    try:
+        raw_body = _open_url_safely(req, timeout=timeout)
+        body = raw_body.decode("utf-8")
+    except urllib.error.HTTPError as e:
+        if e.code == 401:
+            raise AuthenticationError(
+                "WakaTime API authentication failed (401 Unauthorized) when fetching all-time stats."
+            ) from e
+        elif e.code == 403:
+            raise AuthorizationError(
+                "WakaTime API returned 403 Forbidden. Ensure your API key has read permissions."
+            ) from e
+        elif e.code == 429:
+            raise RateLimitError("WakaTime API rate limit reached (429 Too Many Requests).") from e
+        else:
+            raise APIResponseError(f"HTTP error {e.code} querying WakaTime all-time stats: {e.reason}") from e
+    except urllib.error.URLError as e:
+        raise APIResponseError(f"Network error contacting WakaTime all-time endpoint: {e.reason}") from e
+    except Exception as e:
+        raise APIResponseError(f"Unexpected error fetching WakaTime all-time stats: {str(e)}") from e
+
+    try:
+        data = json.loads(body)
+    except json.JSONDecodeError as e:
+        raise APIResponseError("Malformed JSON received from WakaTime all-time endpoint.") from e
+
+    if not isinstance(data, dict):
+        raise APIResponseError("Unexpected JSON root type (expected object/dict) from all-time endpoint.")
+
+    return data
+
+
+def parse_wakatime_all_time(raw_json: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Parse WakaTime all_time_since_today JSON response into total_seconds and formatted duration.
+    """
+    data = raw_json.get("data")
+    if not isinstance(data, dict):
+        raise APIResponseError("Invalid WakaTime all-time payload: missing or invalid 'data' object.")
+
+    total_seconds = float(data.get("total_seconds", 0.0) or 0.0)
+    formatted = format_all_time_duration(total_seconds)
+
+    return {
+        "total_seconds": total_seconds,
+        "formatted": formatted,
+        "text": data.get("text", formatted),
+        "decimal": str(data.get("decimal", f"{total_seconds / 3600.0:.2f}")),
+        "digital": str(data.get("digital", "")),
+        "is_up_to_date": bool(data.get("is_up_to_date", True)),
+    }
+
+
+def create_initial_placeholder_all_time() -> Dict[str, Any]:
+    """Fallback all-time coding statistics when API is unavailable or placeholder used."""
+    return {
+        "total_seconds": 0.0,
+        "formatted": "0h 00m",
+        "text": "0h 00m",
+        "decimal": "0.00",
+        "digital": "00:00",
+        "is_up_to_date": False,
+    }
+
+
 def parse_wakatime_data(
     raw_json: Dict[str, Any],
     window_days: int = 14,
@@ -492,8 +592,9 @@ def create_initial_placeholder_contributions() -> Dict[str, Any]:
 def compute_activity_hash(
     activity_data: Dict[str, Any],
     contrib_data: Optional[Dict[str, Any]] = None,
+    all_time_data: Optional[Dict[str, Any]] = None,
 ) -> str:
-    """Compute a deterministic hash of both activity data values and contribution stats."""
+    """Compute a deterministic hash of activity data values, contribution stats, and all-time total."""
     compact_records = [
         f"{d['date']}:{int(round(d['seconds']))}"
         for d in activity_data.get("days", [])
@@ -501,6 +602,8 @@ def compute_activity_hash(
     payload = "|".join(compact_records)
     if contrib_data:
         payload += f"|gh:{contrib_data.get('total', 0)}:{contrib_data.get('current_streak', 0)}:{contrib_data.get('longest_streak', 0)}"
+    if all_time_data:
+        payload += f"|at:{int(round(all_time_data.get('total_seconds', 0.0)))}"
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
@@ -581,6 +684,7 @@ def calculate_smooth_path(points: List[Tuple[float, float]], bottom_y: float) ->
 def generate_svg(
     activity_data: Dict[str, Any],
     contrib_data: Optional[Dict[str, Any]] = None,
+    all_time_data: Optional[Dict[str, Any]] = None,
     timestamp_override: Optional[str] = None,
     is_placeholder: bool = False,
 ) -> str:
@@ -591,15 +695,17 @@ def generate_svg(
        - TOTAL CONTRIBUTIONS with date range
        - CURRENT STREAK with flame indicator & circular ring
        - LONGEST STREAK with date range
+    3. All-Time Coding Hours footer (TOTAL CODING TIME)
     """
     days = activity_data.get("days", [])
     if not days:
         raise ValidationError("Cannot generate SVG: no day records provided.")
 
     gh_stats = contrib_data or create_initial_placeholder_contributions()
+    all_time_stats = all_time_data or create_initial_placeholder_all_time()
 
     width = 840
-    height = 490
+    height = 530
     chart_left = 60
     chart_right = 810
     chart_top = 105
@@ -643,7 +749,7 @@ def generate_svg(
         points.append((x, y))
 
     line_path, area_path = calculate_smooth_path(points, chart_bottom)
-    act_hash = compute_activity_hash(activity_data, gh_stats)
+    act_hash = compute_activity_hash(activity_data, gh_stats, all_time_stats)
 
     if timestamp_override:
         gen_timestamp = timestamp_override
@@ -654,6 +760,7 @@ def generate_svg(
     total_str = activity_data.get("total_formatted", "0m")
     avg_str = activity_data.get("daily_avg_formatted", "0m")
     today_str = activity_data.get("today_formatted", "0m")
+    all_time_str = all_time_stats.get("formatted", "0h 00m")
 
     # Grid Lines
     grid_lines_xml = []
@@ -662,9 +769,9 @@ def generate_svg(
         label_val = f"{int(val)}h" if val.is_integer() else f"{val:.1f}h"
         grid_lines_xml.append(
             f'    <line x1="{chart_left}" y1="{y_pos:.1f}" x2="{chart_right}" y2="{y_pos:.1f}" '
-            f'stroke="#152132" stroke-dasharray="3,3" stroke-width="1" />\n'
-            f'    <text x="{chart_left - 10}" y="{y_pos + 3.5:.1f}" fill="#6e7681" '
-            f'font-size="10" font-family="monospace" text-anchor="end">{label_val}</text>'
+            f'stroke="#21262d" stroke-dasharray="3,3" stroke-width="1" />\n'
+            f'    <text x="{chart_left - 10}" y="{y_pos + 3.5:.1f}" fill="#8b949e" '
+            f'font-size="10" font-weight="400" text-anchor="end" class="sans">{label_val}</text>'
         )
     grid_xml_str = "\n".join(grid_lines_xml)
 
@@ -674,7 +781,7 @@ def generate_svg(
     for i, (day, (x, y)) in enumerate(zip(days, points)):
         dot_xml = (
             f'    <g class="data-dot" tabindex="0">\n'
-            f'      <circle cx="{x:.1f}" cy="{y:.1f}" r="3.5" fill="#080f1a" stroke="#58a6ff" stroke-width="2" />\n'
+            f'      <circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />\n'
             f'      <title>{day["date"]}: {day["formatted"]} ({day["hours"]:.2f} hrs)</title>\n'
             f'    </g>'
         )
@@ -683,7 +790,7 @@ def generate_svg(
         label_text = day["label"]
         x_labels_xml.append(
             f'    <text x="{x:.1f}" y="{chart_bottom + 18}" fill="#8b949e" '
-            f'font-size="9.5" font-family="monospace" text-anchor="middle">{label_text}</text>'
+            f'font-size="9.5" font-weight="400" text-anchor="middle" class="sans">{label_text}</text>'
         )
 
     dots_xml_str = "\n".join(dots_xml)
@@ -693,8 +800,8 @@ def generate_svg(
     if is_placeholder:
         placeholder_badge = (
             '    <g transform="translate(60, 48)">\n'
-            '      <rect x="0" y="0" width="220" height="20" rx="4" fill="#1f293d" />\n'
-            '      <text x="110" y="14" fill="#58a6ff" font-size="10" font-family="monospace" text-anchor="middle">AWAITING INITIAL SYNC</text>\n'
+            '      <rect x="0" y="0" width="200" height="20" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" />\n'
+            '      <text x="100" y="14" fill="#58a6ff" font-size="10" font-weight="600" text-anchor="middle" class="sans">AWAITING INITIAL SYNC</text>\n'
             '    </g>\n'
         )
 
@@ -710,60 +817,56 @@ def generate_svg(
      data-activity-hash="{act_hash}" data-generated-at="{gen_timestamp}">
   <!-- activity-hash: {act_hash} -->
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#091322" />
-      <stop offset="100%" stop-color="#060b13" />
-    </linearGradient>
     <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.28" />
-      <stop offset="85%" stop-color="#58a6ff" stop-opacity="0.04" />
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.16" />
       <stop offset="100%" stop-color="#58a6ff" stop-opacity="0.0" />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
   </defs>
 
   <style>
-    .mono {{ font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace; }}
-    .data-dot {{ cursor: pointer; transition: transform 0.15s ease; }}
+    text {{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }}
+    .sans {{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }}
+    .data-dot {{ cursor: pointer; }}
     .data-dot circle {{ transition: r 0.2s ease, fill 0.2s ease, stroke 0.2s ease; }}
-    .data-dot:hover circle {{ r: 6.5; fill: #58a6ff; stroke: #ffffff; stroke-width: 2.5; }}
-    .card-border {{ stroke: #1f293d; stroke-width: 1.2; }}
-    .stat-box {{ fill: #0b1a2e; stroke: #19273c; stroke-width: 1; }}
+    .data-dot:hover circle {{ r: 5; fill: #58a6ff; stroke: #ffffff; stroke-width: 2; }}
+    .card-border {{ stroke: #30363d; stroke-width: 1; }}
+    .stat-box {{ fill: #161b22; stroke: #30363d; stroke-width: 1; }}
   </style>
 
   <!-- Container Box -->
-  <rect x="1" y="1" width="{width - 2}" height="{height - 2}" rx="12" fill="url(#bgGrad)" class="card-border" />
+  <rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="12" fill="#0D1117" class="card-border" />
 
   <!-- Header Section -->
   <g transform="translate(60, 32)">
-    <text x="18" y="9" fill="#58a6ff" font-size="15" font-weight="700" letter-spacing="1.5" class="mono">Daily Dev Time</text>
-    <text x="18" y="24" fill="#8b949e" font-size="9" letter-spacing="0.8" class="mono">WAKATIME | past 14 days</text>
+    <text x="0" y="14" fill="#58a6ff" font-size="16" font-weight="600" class="sans">Daily Dev Time</text>
+    <text x="0" y="32" fill="#8b949e" font-size="11" font-weight="400" class="sans">WakaTime · Past 14 Days</text>
   </g>
 
 {placeholder_badge}
   <!-- Stat Badges (Top Right) -->
   <g transform="translate(420, 20)">
     <!-- Total Card -->
-    <rect x="0" y="0" width="120" height="48" rx="8" class="stat-box" />
-    <text x="60" y="18" fill="#8b949e" font-size="9" font-weight="600" letter-spacing="0.6" text-anchor="middle" class="mono">14-DAY TOTAL</text>
-    <text x="60" y="38" fill="#f0f6fc" font-size="13.5" font-weight="700" text-anchor="middle" class="mono">{total_str}</text>
+    <rect x="0" y="0" width="120" height="48" rx="6" class="stat-box" />
+    <text x="60" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">14-DAY TOTAL</text>
+    <text x="60" y="38" fill="#e6edf3" font-size="14" font-weight="600" text-anchor="middle" class="sans">{total_str}</text>
 
     <!-- Daily Average Card -->
-    <rect x="132" y="0" width="120" height="48" rx="8" class="stat-box" />
-    <text x="192" y="18" fill="#8b949e" font-size="9" font-weight="600" letter-spacing="0.6" text-anchor="middle" class="mono">DAILY AVERAGE</text>
-    <text x="192" y="38" fill="#58a6ff" font-size="13.5" font-weight="700" text-anchor="middle" class="mono">{avg_str}</text>
+    <rect x="132" y="0" width="120" height="48" rx="6" class="stat-box" />
+    <text x="192" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">DAILY AVERAGE</text>
+    <text x="192" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">{avg_str}</text>
 
     <!-- Today Card -->
-    <rect x="264" y="0" width="120" height="48" rx="8" class="stat-box" />
-    <text x="324" y="18" fill="#8b949e" font-size="9" font-weight="600" letter-spacing="0.6" text-anchor="middle" class="mono">TODAY</text>
-    <text x="324" y="38" fill="#388bfd" font-size="13.5" font-weight="700" text-anchor="middle" class="mono">{today_str}</text>
+    <rect x="264" y="0" width="120" height="48" rx="6" class="stat-box" />
+    <text x="324" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">TODAY</text>
+    <text x="324" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">{today_str}</text>
   </g>
 
   <!-- Divider Line -->
-  <line x1="{chart_left}" y1="82" x2="{chart_right}" y2="82" stroke="#152132" stroke-width="1" />
+  <line x1="{chart_left}" y1="84" x2="{chart_right}" y2="84" stroke="#21262d" stroke-width="1" />
 
   <!-- Grid Lines & Y-Axis -->
   <g id="grid-lines">
@@ -774,7 +877,7 @@ def generate_svg(
   <path d="{area_path}" fill="url(#areaGrad)" />
 
   <!-- Smooth Activity Line -->
-  <path d="{line_path}" fill="none" stroke="#58a6ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="{line_path}" fill="none" stroke="#58a6ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Data Dots with Tooltips -->
   <g id="data-dots">
@@ -787,48 +890,57 @@ def generate_svg(
   </g>
 
   <!-- Middle Divider Line -->
-  <line x1="60" y1="308" x2="810" y2="308" stroke="#152132" stroke-width="1" />
+  <line x1="60" y1="304" x2="810" y2="304" stroke="#21262d" stroke-width="1" />
 
   <!-- ==================== GITHUB CONTRIBUTION STATS PANEL ==================== -->
-  <g id="github-contribution-panel" class="mono">
+  <g id="github-contribution-panel">
     <!-- Panel Box -->
-    <rect x="60" y="322" width="750" height="126" rx="10" fill="#0b1a2e" stroke="#1f293d" stroke-width="1.2" />
+    <rect x="60" y="318" width="750" height="122" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1" />
 
     <!-- Vertical Dividers -->
-    <line x1="310" y1="334" x2="310" y2="436" stroke="#1f6feb" stroke-opacity="0.35" stroke-width="1" />
-    <line x1="560" y1="334" x2="560" y2="436" stroke="#1f6feb" stroke-opacity="0.35" stroke-width="1" />
+    <line x1="310" y1="330" x2="310" y2="426" stroke="#21262d" stroke-width="1" />
+    <line x1="560" y1="330" x2="560" y2="426" stroke="#21262d" stroke-width="1" />
 
     <!-- SECTION 1: TOTAL CONTRIBUTIONS -->
-    <g transform="translate(185, 335)">
-      <text x="0" y="36" text-anchor="middle" font-size="28" font-weight="700" fill="#70A5FD">{gh_total}</text>
-      <text x="0" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#58a6ff" letter-spacing="1">TOTAL CONTRIBUTIONS</text>
-      <text x="0" y="90" text-anchor="middle" font-size="10.5" fill="#38BDAE">{gh_period}</text>
+    <g transform="translate(185, 332)">
+      <text x="0" y="32" text-anchor="middle" font-size="26" font-weight="600" fill="#e6edf3" class="sans">{gh_total}</text>
+      <text x="0" y="58" text-anchor="middle" font-size="11" font-weight="600" fill="#8b949e" letter-spacing="0.5" class="sans">TOTAL CONTRIBUTIONS</text>
+      <text x="0" y="80" text-anchor="middle" font-size="10.5" font-weight="400" fill="#58a6ff" class="sans">{gh_period}</text>
     </g>
 
     <!-- SECTION 2: CURRENT STREAK -->
-    <g transform="translate(435, 335)">
+    <g transform="translate(435, 332)">
       <!-- Circular Ring -->
-      <circle cx="0" cy="36" r="23" fill="none" stroke="#58a6ff" stroke-width="3" />
+      <circle cx="0" cy="30" r="22" fill="none" stroke="#58a6ff" stroke-width="2.5" />
       <!-- Big Number Inside Ring -->
-      <text x="0" y="44" text-anchor="middle" font-size="20" font-weight="700" fill="#BF91F3">{gh_cur_streak}</text>
+      <text x="0" y="37" text-anchor="middle" font-size="18" font-weight="600" fill="#e6edf3" class="sans">{gh_cur_streak}</text>
       <!-- Title -->
-      <text x="0" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#58a6ff" letter-spacing="1">CURRENT STREAK</text>
+      <text x="0" y="68" text-anchor="middle" font-size="11" font-weight="600" fill="#8b949e" letter-spacing="0.5" class="sans">CURRENT STREAK</text>
       <!-- Date Range -->
-      <text x="0" y="96" text-anchor="middle" font-size="10.5" fill="#38BDAE">{gh_cur_range}</text>
+      <text x="0" y="86" text-anchor="middle" font-size="10.5" font-weight="400" fill="#58a6ff" class="sans">{gh_cur_range}</text>
     </g>
 
     <!-- SECTION 3: LONGEST STREAK -->
-    <g transform="translate(685, 335)">
-      <text x="0" y="36" text-anchor="middle" font-size="28" font-weight="700" fill="#70A5FD">{gh_long_streak}</text>
-      <text x="0" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#58a6ff" letter-spacing="1">LONGEST STREAK</text>
-      <text x="0" y="90" text-anchor="middle" font-size="10.5" fill="#38BDAE">{gh_long_range}</text>
+    <g transform="translate(685, 332)">
+      <text x="0" y="32" text-anchor="middle" font-size="26" font-weight="600" fill="#e6edf3" class="sans">{gh_long_streak}</text>
+      <text x="0" y="58" text-anchor="middle" font-size="11" font-weight="600" fill="#8b949e" letter-spacing="0.5" class="sans">LONGEST STREAK</text>
+      <text x="0" y="80" text-anchor="middle" font-size="10.5" font-weight="400" fill="#58a6ff" class="sans">{gh_long_range}</text>
     </g>
   </g>
 
+  <!-- Divider Line Above Footer -->
+  <line x1="60" y1="458" x2="810" y2="458" stroke="#21262d" stroke-width="1" />
+
+  <!-- ==================== ALL-TIME CODING HOURS FOOTER ==================== -->
+  <g id="footer-all-time" transform="translate(60, 474)">
+    <text x="0" y="13" fill="#8b949e" font-size="10" font-weight="600" letter-spacing="0.5" class="sans">TOTAL CODING TIME</text>
+    <text x="0" y="36" fill="#58a6ff" font-size="18" font-weight="600" class="sans">{all_time_str}</text>
+  </g>
+
   <!-- Footer Metadata -->
-  <g id="footer-meta" class="mono">
-    <text x="{chart_left}" y="472" fill="#484f58" font-size="9">@rtomswastaken</text>
-    <text x="{chart_right}" y="472" fill="#484f58" font-size="9" text-anchor="end">UPDATED {gen_timestamp}</text>
+  <g id="footer-meta" transform="translate(810, 474)">
+    <text x="0" y="13" fill="#8b949e" font-size="10" font-weight="500" text-anchor="end" class="sans">@rtomswastaken</text>
+    <text x="0" y="34" fill="#484f58" font-size="9.5" text-anchor="end" class="sans">UPDATED {gen_timestamp}</text>
   </g>
 </svg>"""
 
@@ -943,16 +1055,30 @@ def main() -> int:
             print("[INFO] Generating initial awaiting-sync placeholder SVG...")
             data = create_initial_placeholder_data(14)
             gh_contribs = create_initial_placeholder_contributions()
-            svg = generate_svg(data, contrib_data=gh_contribs, is_placeholder=True)
+            all_time_data = create_initial_placeholder_all_time()
+            svg = generate_svg(data, contrib_data=gh_contribs, all_time_data=all_time_data, is_placeholder=True)
             if not args.dry_run:
                 update_graph_file(output_path, svg, force=True)
             return 0
 
-        # 1. Fetch WakaTime statistics
+        # 1. Fetch WakaTime 14-day activity statistics
         raw_json = fetch_wakatime_data(api_key=api_key, json_url=json_url)
         activity_data = parse_wakatime_data(raw_json, window_days=14)
 
-        # 2. Fetch GitHub contribution statistics
+        # 2. Fetch WakaTime all-time coding statistics
+        all_time_data = None
+        if api_key:
+            try:
+                raw_at = fetch_wakatime_all_time(api_key=api_key)
+                all_time_data = parse_wakatime_all_time(raw_at)
+                print(f"[INFO] Fetched WakaTime all-time coding time: {all_time_data['formatted']}")
+            except Exception as e:
+                print(f"[WARN] Could not fetch WakaTime all-time stats ({e}). Using fallback placeholder.", file=sys.stderr)
+                all_time_data = create_initial_placeholder_all_time()
+        else:
+            all_time_data = create_initial_placeholder_all_time()
+
+        # 3. Fetch GitHub contribution statistics
         gh_contribs = None
         try:
             gh_raw = fetch_github_contributions(username=github_user, token=github_token)
@@ -964,13 +1090,13 @@ def main() -> int:
 
         # Check existing hash if hash matches and not forced
         existing_hash = get_existing_svg_hash(output_path)
-        new_hash = compute_activity_hash(activity_data, gh_contribs)
+        new_hash = compute_activity_hash(activity_data, gh_contribs, all_time_data)
 
         if not args.force and existing_hash == new_hash:
-            print(f"[INFO] Activity and contribution data unchanged ({new_hash}). SVG update skipped.")
+            print(f"[INFO] Activity, contribution, and all-time data unchanged ({new_hash}). SVG update skipped.")
             return 0
 
-        svg = generate_svg(activity_data, contrib_data=gh_contribs, is_placeholder=False)
+        svg = generate_svg(activity_data, contrib_data=gh_contribs, all_time_data=all_time_data, is_placeholder=False)
 
         if args.dry_run:
             print("[INFO] Dry run successful. Generated SVG is valid.")

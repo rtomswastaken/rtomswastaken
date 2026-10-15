@@ -41,14 +41,18 @@ from generate_activity_graph import (
     RateLimitError,
     ValidationError,
     compute_activity_hash,
+    create_initial_placeholder_all_time,
     create_initial_placeholder_contributions,
     fetch_github_contributions,
+    fetch_wakatime_all_time,
     fetch_wakatime_data,
+    format_all_time_duration,
     format_duration,
     format_streak_range,
     generate_svg,
     get_existing_svg_hash,
     parse_github_contributions,
+    parse_wakatime_all_time,
     parse_wakatime_data,
     sanitize_for_log,
     update_graph_file,
@@ -166,6 +170,17 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
                         }
                     }
                 }
+            }
+        }
+
+        # 4. Representative WakaTime All-Time Response
+        self.sample_all_time_json = {
+            "data": {
+                "total_seconds": 4443600.0,
+                "text": "1,234 hrs 20 mins",
+                "decimal": "1234.33",
+                "digital": "1234:20",
+                "is_up_to_date": True,
             }
         }
 
@@ -288,7 +303,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
 
         root = ET.fromstring(svg)
         self.assertTrue(root.tag.endswith("svg"))
-        self.assertEqual(root.attrib.get("viewBox"), "0 0 840 490")
+        self.assertEqual(root.attrib.get("viewBox"), "0 0 840 530")
 
         # Visual components: Daily Dev Time and WakaTime stats
         self.assertIn("Daily Dev Time", svg)
@@ -302,6 +317,16 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
         self.assertIn("CURRENT STREAK", svg)
         self.assertIn("LONGEST STREAK", svg)
         self.assertIn("154", svg)
+
+        # All-time coding hours footer components
+        self.assertIn("TOTAL CODING TIME", svg)
+        self.assertIn("0h 00m", svg)
+
+        # Theme and typography assertions
+        self.assertIn("#0D1117", svg)
+        self.assertIn("system-ui, -apple-system, BlinkMacSystemFont", svg)
+        self.assertNotIn('font-family="monospace"', svg)
+        self.assertNotIn("JetBrains Mono", svg)
 
         # Tooltips
         title_tags = root.findall(".//{http://www.w3.org/2000/svg}title")
@@ -505,6 +530,111 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
         mock_open.return_value = json.dumps({"errors": [{"message": "Field 'user' does not exist"}]}).encode("utf-8")
         with self.assertRaises(GitHubAPIError):
             fetch_github_contributions(token="test_token")
+
+    # ----------------------------------------------------
+    # TEST 15: All-Time WakaTime Duration Formatting
+    # ----------------------------------------------------
+    def test_format_all_time_duration(self):
+        self.assertEqual(format_all_time_duration(0), "0h 00m")
+        self.assertEqual(format_all_time_duration(45), "< 1m")
+        self.assertEqual(format_all_time_duration(1800), "30m")
+        self.assertEqual(format_all_time_duration(3600), "1h")
+        self.assertEqual(format_all_time_duration(5400), "1h 30m")
+        self.assertEqual(format_all_time_duration(4443600), "1,234h 20m")
+        self.assertEqual(format_all_time_duration(4444560), "1,234h 36m")
+
+    # ----------------------------------------------------
+    # TEST 16: All-Time WakaTime Response Parsing
+    # ----------------------------------------------------
+    def test_parse_wakatime_all_time(self):
+        parsed = parse_wakatime_all_time(self.sample_all_time_json)
+        self.assertEqual(parsed["total_seconds"], 4443600.0)
+        self.assertEqual(parsed["formatted"], "1,234h 20m")
+        self.assertEqual(parsed["decimal"], "1234.33")
+        self.assertEqual(parsed["digital"], "1234:20")
+        self.assertTrue(parsed["is_up_to_date"])
+
+    def test_parse_wakatime_all_time_malformed(self):
+        with self.assertRaises(APIResponseError):
+            parse_wakatime_all_time({"invalid": 123})
+        with self.assertRaises(APIResponseError):
+            parse_wakatime_all_time({"data": "not a dict"})
+
+    # ----------------------------------------------------
+    # TEST 17: All-Time WakaTime API Fetching & Errors
+    # ----------------------------------------------------
+    @patch("generate_activity_graph._open_url_safely")
+    def test_fetch_wakatime_all_time_success(self, mock_open):
+        mock_open.return_value = json.dumps(self.sample_all_time_json).encode("utf-8")
+        res = fetch_wakatime_all_time(api_key="valid_test_key")
+        self.assertIn("data", res)
+        self.assertEqual(res["data"]["total_seconds"], 4443600.0)
+
+    def test_fetch_wakatime_all_time_missing_api_key(self):
+        with self.assertRaises(ConfigurationError):
+            fetch_wakatime_all_time(api_key=None)
+
+    @patch("generate_activity_graph._open_url_safely")
+    def test_fetch_wakatime_all_time_401(self, mock_open):
+        import urllib.error
+        mock_open.side_effect = urllib.error.HTTPError(
+            url="https://wakatime.com/api/v1/users/current/all_time_since_today",
+            code=401,
+            msg="Unauthorized",
+            hdrs={},
+            fp=None,
+        )
+        with self.assertRaises(AuthenticationError):
+            fetch_wakatime_all_time(api_key="bad_key")
+
+    @patch("generate_activity_graph._open_url_safely")
+    def test_fetch_wakatime_all_time_403(self, mock_open):
+        import urllib.error
+        mock_open.side_effect = urllib.error.HTTPError(
+            url="https://wakatime.com/api/v1/users/current/all_time_since_today",
+            code=403,
+            msg="Forbidden",
+            hdrs={},
+            fp=None,
+        )
+        with self.assertRaises(AuthorizationError):
+            fetch_wakatime_all_time(api_key="restricted_key")
+
+    @patch("generate_activity_graph._open_url_safely")
+    def test_fetch_wakatime_all_time_429(self, mock_open):
+        import urllib.error
+        mock_open.side_effect = urllib.error.HTTPError(
+            url="https://wakatime.com/api/v1/users/current/all_time_since_today",
+            code=429,
+            msg="Too Many Requests",
+            hdrs={},
+            fp=None,
+        )
+        with self.assertRaises(RateLimitError):
+            fetch_wakatime_all_time(api_key="valid_key")
+
+    # ----------------------------------------------------
+    # TEST 18: SVG Rendering with All-Time Data & Hash
+    # ----------------------------------------------------
+    def test_svg_renders_with_actual_all_time_stats(self):
+        parsed = parse_wakatime_data(self.sample_api_summaries, window_days=14, reference_date=self.ref_date)
+        gh_parsed = parse_github_contributions(self.sample_github_graphql)
+        at_parsed = parse_wakatime_all_time(self.sample_all_time_json)
+        svg = generate_svg(parsed, contrib_data=gh_parsed, all_time_data=at_parsed)
+
+        self.assertIn("TOTAL CODING TIME", svg)
+        self.assertIn("1,234h 20m", svg)
+        self.assertIn("Daily Dev Time", svg)
+
+    def test_activity_hash_includes_all_time(self):
+        parsed = parse_wakatime_data(self.sample_api_summaries, window_days=14, reference_date=self.ref_date)
+        gh_parsed = parse_github_contributions(self.sample_github_graphql)
+        at_1 = {"total_seconds": 3600.0}
+        at_2 = {"total_seconds": 7200.0}
+
+        hash_1 = compute_activity_hash(parsed, gh_parsed, at_1)
+        hash_2 = compute_activity_hash(parsed, gh_parsed, at_2)
+        self.assertNotEqual(hash_1, hash_2)
 
 
 if __name__ == "__main__":
