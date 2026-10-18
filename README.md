@@ -1,8 +1,6 @@
 <p align="center">
   <img src="./assets/rtoms.svg" alt="richardsen thomas" width="100%" />
 </p>
-
-
 <!-- ==================== ABOUT ME ==================== -->
 
 <table align="center" border="0" style="border-collapse: collapse; border: none; width: 100%;">
