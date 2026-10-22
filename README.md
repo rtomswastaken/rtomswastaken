@@ -168,6 +168,35 @@ rule engines.
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
 <br/>
 
+<!-- ==================== COMPLETED PROJECTS ==================== -->
+<p align="center">
+  <strong style="font-size: 1.25rem;"><i>Completed Projects</i></strong>
+</p>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
+<tr style="border: none;">
+<td width="25%" align="center" valign="middle" style="border: none; padding: 20px; background-color: #0b1a2e;">
+  <a href="https://github.com/rtomswastaken/kiko-notch">
+    <img src="./assets/kiko-notch.png" alt="Kiko Notch Logo" width="80" style="display: block; margin: 0 auto 8px auto;" />
+  </a>
+  <h3 align="center" style="margin: 0; font-size: 1.15rem; border-bottom: none;">
+    <a href="https://github.com/rtomswastaken/kiko-notch" style="color: #58a6ff; text-decoration: none;">Kiko Notch</a>
+  </h3>
+</td>
+<td width="75%" valign="middle" style="border: none; padding: 20px 24px; background-color: #0b1a2e; font-size: 0.95rem; line-height: 1.6; color: #c9d1d9;">
+
+A native macOS notch companion that brings everyday controls and useful system information into one compact interface.<br/>Designed to make your Mac experience feel more seamless, intuitive, and personal.
+
+[View Repository →](https://github.com/rtomswastaken/kiko-notch)
+
+</td>
+</tr>
+</table>
+
+<br/>
+<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
+<br/>
+
 <!-- ==================== TECHNOLOGIES ==================== -->
 <p align="center">
   <strong style="font-size: 1.25rem;"><i>Technologies</i></strong>
