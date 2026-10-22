@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 530" width="100%" height="100%"
-     data-activity-hash="4238b249c84c2b4b" data-generated-at="2026-10-22 19:46 UTC">
-  <!-- activity-hash: 4238b249c84c2b4b -->
+     data-activity-hash="9742f5f226b3bdba" data-generated-at="2026-10-22 19:49 UTC">
+  <!-- activity-hash: 9742f5f226b3bdba -->
   <defs>
     <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.16" />
@@ -37,7 +37,7 @@
     <!-- Total Card -->
     <rect x="0" y="0" width="120" height="48" rx="6" class="stat-box" />
     <text x="60" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">14-DAY TOTAL</text>
-    <text x="60" y="38" fill="#e6edf3" font-size="14" font-weight="600" text-anchor="middle" class="sans">59h 37m</text>
+    <text x="60" y="38" fill="#e6edf3" font-size="14" font-weight="600" text-anchor="middle" class="sans">59h 41m</text>
 
     <!-- Daily Average Card -->
     <rect x="132" y="0" width="120" height="48" rx="6" class="stat-box" />
@@ -47,7 +47,7 @@
     <!-- Today Card -->
     <rect x="264" y="0" width="120" height="48" rx="6" class="stat-box" />
     <text x="324" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">TODAY</text>
-    <text x="324" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">1h 14m</text>
+    <text x="324" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">1h 18m</text>
   </g>
 
   <!-- Divider Line -->
@@ -68,10 +68,10 @@
   </g>
 
   <!-- Area Fill -->
-  <path d="M 60.0 265.0 L 60.0 238.7 C 69.6 224.5, 98.5 153.7, 117.7 153.5 C 136.9 153.4, 156.2 234.6, 175.4 237.9 C 194.6 241.2, 213.8 190.2, 233.1 173.4 C 252.3 156.6, 271.5 134.3, 290.8 137.1 C 310.0 140.0, 329.2 170.0, 348.5 190.5 C 367.7 210.9, 386.9 247.4, 406.2 259.7 C 425.4 265.0, 444.6 265.0, 463.8 264.2 C 483.1 249.1, 502.3 171.4, 521.5 168.9 C 540.8 166.3, 560.0 250.7, 579.2 248.9 C 598.5 247.1, 617.7 160.3, 636.9 158.1 C 656.2 155.8, 675.4 228.2, 694.6 235.3 C 713.8 242.4, 733.1 198.4, 752.3 200.6 C 771.5 202.8, 800.4 240.5, 810.0 248.5 L 810.0 265.0 Z" fill="url(#areaGrad)" />
+  <path d="M 60.0 265.0 L 60.0 238.7 C 69.6 224.5, 98.5 153.7, 117.7 153.5 C 136.9 153.4, 156.2 234.6, 175.4 237.9 C 194.6 241.2, 213.8 190.2, 233.1 173.4 C 252.3 156.6, 271.5 134.3, 290.8 137.1 C 310.0 140.0, 329.2 170.0, 348.5 190.5 C 367.7 210.9, 386.9 247.4, 406.2 259.7 C 425.4 265.0, 444.6 265.0, 463.8 264.2 C 483.1 249.1, 502.3 171.4, 521.5 168.9 C 540.8 166.3, 560.0 250.7, 579.2 248.9 C 598.5 247.1, 617.7 160.3, 636.9 158.1 C 656.2 155.8, 675.4 228.2, 694.6 235.3 C 713.8 242.4, 733.1 198.6, 752.3 200.6 C 771.5 202.6, 800.4 239.7, 810.0 247.5 L 810.0 265.0 Z" fill="url(#areaGrad)" />
 
   <!-- Smooth Activity Line -->
-  <path d="M 60.0 238.7 C 69.6 224.5, 98.5 153.7, 117.7 153.5 C 136.9 153.4, 156.2 234.6, 175.4 237.9 C 194.6 241.2, 213.8 190.2, 233.1 173.4 C 252.3 156.6, 271.5 134.3, 290.8 137.1 C 310.0 140.0, 329.2 170.0, 348.5 190.5 C 367.7 210.9, 386.9 247.4, 406.2 259.7 C 425.4 265.0, 444.6 265.0, 463.8 264.2 C 483.1 249.1, 502.3 171.4, 521.5 168.9 C 540.8 166.3, 560.0 250.7, 579.2 248.9 C 598.5 247.1, 617.7 160.3, 636.9 158.1 C 656.2 155.8, 675.4 228.2, 694.6 235.3 C 713.8 242.4, 733.1 198.4, 752.3 200.6 C 771.5 202.8, 800.4 240.5, 810.0 248.5" fill="none" stroke="#58a6ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 60.0 238.7 C 69.6 224.5, 98.5 153.7, 117.7 153.5 C 136.9 153.4, 156.2 234.6, 175.4 237.9 C 194.6 241.2, 213.8 190.2, 233.1 173.4 C 252.3 156.6, 271.5 134.3, 290.8 137.1 C 310.0 140.0, 329.2 170.0, 348.5 190.5 C 367.7 210.9, 386.9 247.4, 406.2 259.7 C 425.4 265.0, 444.6 265.0, 463.8 264.2 C 483.1 249.1, 502.3 171.4, 521.5 168.9 C 540.8 166.3, 560.0 250.7, 579.2 248.9 C 598.5 247.1, 617.7 160.3, 636.9 158.1 C 656.2 155.8, 675.4 228.2, 694.6 235.3 C 713.8 242.4, 733.1 198.6, 752.3 200.6 C 771.5 202.6, 800.4 239.7, 810.0 247.5" fill="none" stroke="#58a6ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Data Dots with Tooltips -->
   <g id="data-dots">
@@ -128,8 +128,8 @@
       <title>2026-10-22: 4h 49m (4.83 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="810.0" cy="248.5" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
-      <title>2026-10-23: 1h 14m (1.24 hrs)</title>
+      <circle cx="810.0" cy="247.5" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <title>2026-10-23: 1h 18m (1.31 hrs)</title>
     </g>
   </g>
 
@@ -202,6 +202,6 @@
   <!-- Footer Metadata -->
   <g id="footer-meta" transform="translate(810, 474)">
     <text x="0" y="13" fill="#8b949e" font-size="10" font-weight="500" text-anchor="end" class="sans">@rtomswastaken</text>
-    <text x="0" y="34" fill="#484f58" font-size="9.5" text-anchor="end" class="sans">UPDATED 2026-10-22 19:46 UTC</text>
+    <text x="0" y="34" fill="#484f58" font-size="9.5" text-anchor="end" class="sans">UPDATED 2026-10-22 19:49 UTC</text>
   </g>
 </svg>
