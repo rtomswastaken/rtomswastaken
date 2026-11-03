@@ -96,6 +96,27 @@ def _open_url_safely(req: urllib.request.Request, timeout: int = 20) -> bytes:
         raise
 
 
+def _build_wakatime_auth_header(token: str) -> str:
+    """
+    Format Authorization header for WakaTime.
+    Supports:
+    - OAuth 2.0 Personal Access Tokens (Bearer <token>)
+    - Explicit 'Bearer <token>' or 'Basic <token>'
+    - Legacy API keys starting with 'waka_' or UUID format (Basic base64)
+    """
+    clean_token = token.strip()
+    if clean_token.lower().startswith("bearer "):
+        return f"Bearer {clean_token[7:].strip()}"
+    if clean_token.lower().startswith("basic "):
+        return clean_token
+    # If the token starts with waka_ or is a legacy UUID, format as Basic auth
+    if clean_token.startswith("waka_") or re.fullmatch(r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}", clean_token):
+        auth_bytes = clean_token.encode("utf-8")
+        return f"Basic {base64.b64encode(auth_bytes).decode('ascii')}"
+    # Otherwise treat as OAuth 2.0 access token (e.g. sec_..., personal access token)
+    return f"Bearer {clean_token}"
+
+
 def fetch_wakatime_data(
     api_key: Optional[str] = None,
     json_url: Optional[str] = None,
@@ -106,7 +127,7 @@ def fetch_wakatime_data(
 
     Supports:
     1. json_url: Public embeddable JSON share (e.g. https://wakatime.com/share/@user/xxx.json)
-    2. api_key: Authenticated WakaTime summaries API (Last 14 Days)
+    2. api_key: Authenticated WakaTime summaries API (OAuth token or API key)
     """
     headers = {
         "User-Agent": "RTOMS-Coding-Activity-Graph/1.0 (+https://github.com/rtomswastaken/rtomswastaken)",
@@ -122,9 +143,7 @@ def fetch_wakatime_data(
     elif api_key:
         api_key_clean = api_key.strip()
         url = "https://wakatime.com/api/v1/users/current/summaries?range=Last%2014%20Days"
-        auth_bytes = api_key_clean.encode("utf-8")
-        auth_header = f"Basic {base64.b64encode(auth_bytes).decode('ascii')}"
-        headers["Authorization"] = auth_header
+        headers["Authorization"] = _build_wakatime_auth_header(api_key_clean)
         req = urllib.request.Request(url, headers=headers, method="GET")
     else:
         raise ConfigurationError(
@@ -136,15 +155,26 @@ def fetch_wakatime_data(
         raw_body = _open_url_safely(req, timeout=timeout)
         body = raw_body.decode("utf-8")
     except urllib.error.HTTPError as e:
+        error_msg = ""
+        try:
+            raw_err = e.read() if hasattr(e, "read") else None
+            if raw_err:
+                err_data = json.loads(raw_err.decode("utf-8", errors="replace"))
+                if isinstance(err_data, dict):
+                    error_msg = err_data.get("error") or err_data.get("message") or (str(err_data.get("errors")) if err_data.get("errors") else "")
+        except Exception:
+            pass
+
         if e.code == 401:
+            detail = f" ({error_msg})" if error_msg else ""
             raise AuthenticationError(
-                "WakaTime API authentication failed (401 Unauthorized). "
+                f"WakaTime API authentication failed (401 Unauthorized){detail}. "
                 "Check that WAKATIME_API_KEY secret is valid and not expired."
             ) from e
         elif e.code == 403:
+            detail = f": {error_msg}" if error_msg else ". Ensure your token has the 'read_summaries' scope."
             raise AuthorizationError(
-                "WakaTime API returned 403 Forbidden. "
-                "Ensure your token has the 'read_summaries' scope."
+                f"WakaTime API returned 403 Forbidden{detail}"
             ) from e
         elif e.code == 429:
             raise RateLimitError(
@@ -215,7 +245,7 @@ def fetch_wakatime_all_time(
     headers = {
         "User-Agent": "RTOMS-Coding-Activity-Graph/1.0 (+https://github.com/rtomswastaken/rtomswastaken)",
         "Accept": "application/json",
-        "Authorization": f"Basic {base64.b64encode(api_key_clean.encode('utf-8')).decode('ascii')}",
+        "Authorization": _build_wakatime_auth_header(api_key_clean),
     }
     req = urllib.request.Request(url, headers=headers, method="GET")
 
@@ -223,13 +253,25 @@ def fetch_wakatime_all_time(
         raw_body = _open_url_safely(req, timeout=timeout)
         body = raw_body.decode("utf-8")
     except urllib.error.HTTPError as e:
+        error_msg = ""
+        try:
+            raw_err = e.read() if hasattr(e, "read") else None
+            if raw_err:
+                err_data = json.loads(raw_err.decode("utf-8", errors="replace"))
+                if isinstance(err_data, dict):
+                    error_msg = err_data.get("error") or err_data.get("message") or (str(err_data.get("errors")) if err_data.get("errors") else "")
+        except Exception:
+            pass
+
         if e.code == 401:
+            detail = f" ({error_msg})" if error_msg else ""
             raise AuthenticationError(
-                "WakaTime API authentication failed (401 Unauthorized) when fetching all-time stats."
+                f"WakaTime API authentication failed (401 Unauthorized){detail} when fetching all-time stats."
             ) from e
         elif e.code == 403:
+            detail = f": {error_msg}" if error_msg else ". Ensure your token has read permissions."
             raise AuthorizationError(
-                "WakaTime API returned 403 Forbidden. Ensure your API key has read permissions."
+                f"WakaTime API returned 403 Forbidden{detail}"
             ) from e
         elif e.code == 429:
             raise RateLimitError("WakaTime API rate limit reached (429 Too Many Requests).") from e
@@ -1045,7 +1087,7 @@ def main() -> int:
     args = parser.parse_args()
 
     output_path = args.output
-    api_key = args.api_key or os.environ.get("WAKATIME_API_KEY")
+    api_key = args.api_key or os.environ.get("WAKATIME_API_KEY") or os.environ.get("WAKATIME_TOKEN") or os.environ.get("WAKATIME_ACCESS_TOKEN")
     json_url = args.json_url or os.environ.get("WAKATIME_JSON_URL")
     github_token = args.github_token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
     github_user = args.github_user

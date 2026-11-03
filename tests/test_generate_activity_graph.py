@@ -40,6 +40,7 @@ from generate_activity_graph import (
     GitHubAPIError,
     RateLimitError,
     ValidationError,
+    _build_wakatime_auth_header,
     compute_activity_hash,
     create_initial_placeholder_all_time,
     create_initial_placeholder_contributions,
@@ -279,6 +280,42 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
         )
         with self.assertRaises(AuthorizationError):
             fetch_wakatime_data(api_key="restricted_key")
+
+    def test_build_wakatime_auth_header(self):
+        # Legacy waka_ prefix uses Basic auth
+        header_waka = _build_wakatime_auth_header("waka_12345678-1234-1234-1234-123456789abc")
+        self.assertTrue(header_waka.startswith("Basic "))
+
+        # UUID format uses Basic auth
+        header_uuid = _build_wakatime_auth_header("428577ce-f28f-4b6f-baf3-62706009950d")
+        self.assertTrue(header_uuid.startswith("Basic "))
+
+        # Explicit Bearer token
+        header_explicit = _build_wakatime_auth_header("Bearer my_oauth_token")
+        self.assertEqual(header_explicit, "Bearer my_oauth_token")
+
+        # OAuth personal token (sec_...) uses Bearer auth
+        header_sec = _build_wakatime_auth_header("sec_abcdef1234567890")
+        self.assertEqual(header_sec, "Bearer sec_abcdef1234567890")
+
+        # Generic OAuth token uses Bearer auth
+        header_generic = _build_wakatime_auth_header("oauth_token_value_xyz")
+        self.assertEqual(header_generic, "Bearer oauth_token_value_xyz")
+
+    @patch("urllib.request.urlopen")
+    def test_auth_failure_403_with_server_message(self, mock_urlopen):
+        import io, urllib.error
+        err_body = io.BytesIO(b'{"error": "API Keys are only for plugins, use your personal oauth token instead."}')
+        mock_urlopen.side_effect = urllib.error.HTTPError(
+            url="https://wakatime.com",
+            code=403,
+            msg="Forbidden",
+            hdrs={},
+            fp=err_body,
+        )
+        with self.assertRaises(AuthorizationError) as ctx:
+            fetch_wakatime_data(api_key="restricted_key")
+        self.assertIn("API Keys are only for plugins", str(ctx.exception))
 
     @patch("urllib.request.urlopen")
     def test_rate_limit_429_raises_rate_limit_error(self, mock_urlopen):
