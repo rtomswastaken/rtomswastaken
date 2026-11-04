@@ -191,17 +191,11 @@ A native macOS notch companion that brings everyday controls and useful system i
 
 </td>
 </tr>
-</table>
 
-<br/>
-<hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
-<br/>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: 100%;">
 <tr style="border: none;">
 <td width="25%" align="center" valign="middle" style="border: none; padding: 20px; background-color: #0b1a2e;">
   <a href="https://github.com/rtomswastaken/KikoBar">
-    <img src="./assets/kiko-notch.png" alt="KikoBar Logo" width="80" style="display: block; margin: 0 auto 8px auto;" />
+    <img src=".assets/kikobar-logo.png" alt="KikoBar Logo" width="80" style="display: block; margin: 0 auto 8px auto;" />
   </a>
   <h3 align="center" style="margin: 0; font-size: 1.15rem; border-bottom: none;">
     <a href="https://github.com/rtomswastaken/KikoBar" style="color: #58a6ff; text-decoration: none;">KikoBar</a>
