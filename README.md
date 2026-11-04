@@ -195,7 +195,7 @@ A native macOS notch companion that brings everyday controls and useful system i
 <tr style="border: none;">
 <td width="25%" align="center" valign="middle" style="border: none; padding: 20px; background-color: #0b1a2e;">
   <a href="https://github.com/rtomswastaken/KikoBar">
-    <img src=".assets/kikobar-logo.png" alt="KikoBar Logo" width="80" style="display: block; margin: 0 auto 8px auto;" />
+    <img src="./assets/kikobar-logo.png" alt="KikoBar Logo" width="80" style="display: block; margin: 0 auto 8px auto;" />
   </a>
   <h3 align="center" style="margin: 0; font-size: 1.15rem; border-bottom: none;">
     <a href="https://github.com/rtomswastaken/KikoBar" style="color: #58a6ff; text-decoration: none;">KikoBar</a>
