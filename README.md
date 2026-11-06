@@ -297,6 +297,10 @@ Kikobar is a native macOS drag-and-drop workspace that lets you collect, organiz
   />
 </p>
 
+<p align="center">
+  <img src="./assets/koi/koi.gif" width="220" alt="Activity Koi" />
+</p>
+
 <br/>
 <hr style="border: 0; height: 1px; background: #21262d; margin: 30px 0;" />
 <br/>
