@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 530" width="100%" height="100%"
-     data-activity-hash="0efcd746e472a4b3" data-generated-at="2026-11-06 18:02 UTC">
-  <!-- activity-hash: 0efcd746e472a4b3 -->
+     data-activity-hash="4f3e6c5571d9a46a" data-generated-at="2026-11-06 21:39 UTC">
+  <!-- activity-hash: 4f3e6c5571d9a46a -->
   <defs>
     <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.16" />
@@ -37,17 +37,17 @@
     <!-- Total Card -->
     <rect x="0" y="0" width="120" height="48" rx="6" class="stat-box" />
     <text x="60" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">14-DAY TOTAL</text>
-    <text x="60" y="38" fill="#e6edf3" font-size="14" font-weight="600" text-anchor="middle" class="sans">34h 45m</text>
+    <text x="60" y="38" fill="#e6edf3" font-size="14" font-weight="600" text-anchor="middle" class="sans">31h</text>
 
     <!-- Daily Average Card -->
     <rect x="132" y="0" width="120" height="48" rx="6" class="stat-box" />
     <text x="192" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">DAILY AVERAGE</text>
-    <text x="192" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">2h 28m</text>
+    <text x="192" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">2h 12m</text>
 
     <!-- Today Card -->
     <rect x="264" y="0" width="120" height="48" rx="6" class="stat-box" />
     <text x="324" y="18" fill="#8b949e" font-size="9.5" font-weight="600" letter-spacing="0.5" text-anchor="middle" class="sans">TODAY</text>
-    <text x="324" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">9m</text>
+    <text x="324" y="38" fill="#58a6ff" font-size="14" font-weight="600" text-anchor="middle" class="sans">1h 37m</text>
   </g>
 
   <!-- Divider Line -->
@@ -68,87 +68,87 @@
   </g>
 
   <!-- Area Fill -->
-  <path d="M 60.0 265.0 L 60.0 186.3 C 69.6 197.0, 98.5 241.8, 117.7 250.1 C 136.9 258.3, 156.2 251.2, 175.4 235.9 C 194.6 220.6, 213.8 159.4, 233.1 158.2 C 252.3 157.0, 271.5 214.6, 290.8 228.7 C 310.0 242.8, 329.2 237.0, 348.5 242.9 C 367.7 248.8, 386.9 260.5, 406.2 264.2 C 425.4 265.0, 444.6 265.0, 463.8 265.0 C 483.1 256.2, 502.3 213.3, 521.5 211.1 C 540.8 209.0, 560.0 253.9, 579.2 252.2 C 598.5 250.5, 617.7 205.9, 636.9 201.0 C 656.2 196.1, 675.4 212.3, 694.6 223.0 C 713.8 233.7, 733.1 258.3, 752.3 265.0 C 771.5 265.0, 800.4 263.3, 810.0 263.0 L 810.0 265.0 Z" fill="url(#areaGrad)" />
+  <path d="M 60.0 265.0 L 60.0 250.1 C 69.6 247.7, 98.5 251.2, 117.7 235.9 C 136.9 220.6, 156.2 159.4, 175.4 158.2 C 194.6 157.0, 213.8 214.6, 233.1 228.7 C 252.3 242.8, 271.5 237.0, 290.8 242.9 C 310.0 248.8, 329.2 260.5, 348.5 264.2 C 367.7 265.0, 386.9 265.0, 406.2 265.0 C 425.4 256.2, 444.6 213.3, 463.8 211.1 C 483.1 209.0, 502.3 253.9, 521.5 252.2 C 540.8 250.5, 560.0 205.9, 579.2 201.0 C 598.5 196.1, 617.7 212.3, 636.9 223.0 C 656.2 233.7, 675.4 259.5, 694.6 265.0 C 713.8 265.0, 733.1 259.4, 752.3 255.8 C 771.5 252.2, 800.4 245.5, 810.0 243.4 L 810.0 265.0 Z" fill="url(#areaGrad)" />
 
   <!-- Smooth Activity Line -->
-  <path d="M 60.0 186.3 C 69.6 197.0, 98.5 241.8, 117.7 250.1 C 136.9 258.3, 156.2 251.2, 175.4 235.9 C 194.6 220.6, 213.8 159.4, 233.1 158.2 C 252.3 157.0, 271.5 214.6, 290.8 228.7 C 310.0 242.8, 329.2 237.0, 348.5 242.9 C 367.7 248.8, 386.9 260.5, 406.2 264.2 C 425.4 265.0, 444.6 265.0, 463.8 265.0 C 483.1 256.2, 502.3 213.3, 521.5 211.1 C 540.8 209.0, 560.0 253.9, 579.2 252.2 C 598.5 250.5, 617.7 205.9, 636.9 201.0 C 656.2 196.1, 675.4 212.3, 694.6 223.0 C 713.8 233.7, 733.1 258.3, 752.3 265.0 C 771.5 265.0, 800.4 263.3, 810.0 263.0" fill="none" stroke="#58a6ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 60.0 250.1 C 69.6 247.7, 98.5 251.2, 117.7 235.9 C 136.9 220.6, 156.2 159.4, 175.4 158.2 C 194.6 157.0, 213.8 214.6, 233.1 228.7 C 252.3 242.8, 271.5 237.0, 290.8 242.9 C 310.0 248.8, 329.2 260.5, 348.5 264.2 C 367.7 265.0, 386.9 265.0, 406.2 265.0 C 425.4 256.2, 444.6 213.3, 463.8 211.1 C 483.1 209.0, 502.3 253.9, 521.5 252.2 C 540.8 250.5, 560.0 205.9, 579.2 201.0 C 598.5 196.1, 617.7 212.3, 636.9 223.0 C 656.2 233.7, 675.4 259.5, 694.6 265.0 C 713.8 265.0, 733.1 259.4, 752.3 255.8 C 771.5 252.2, 800.4 245.5, 810.0 243.4" fill="none" stroke="#58a6ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Data Dots with Tooltips -->
   <g id="data-dots">
     <g class="data-dot" tabindex="0">
-      <circle cx="60.0" cy="186.3" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
-      <title>2026-10-24: 5h 54m (5.90 hrs)</title>
-    </g>
-    <g class="data-dot" tabindex="0">
-      <circle cx="117.7" cy="250.1" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="60.0" cy="250.1" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-25: 1h 07m (1.12 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="175.4" cy="235.9" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="117.7" cy="235.9" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-26: 2h 10m (2.18 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="233.1" cy="158.2" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="175.4" cy="158.2" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-27: 8h (8.01 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="290.8" cy="228.7" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="233.1" cy="228.7" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-28: 2h 43m (2.72 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="348.5" cy="242.9" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="290.8" cy="242.9" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-29: 1h 39m (1.66 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="406.2" cy="264.2" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="348.5" cy="264.2" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-30: 3m (0.06 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="463.8" cy="265.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="406.2" cy="265.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-10-31: 0m (0.00 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="521.5" cy="211.1" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="463.8" cy="211.1" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-11-01: 4h 02m (4.04 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="579.2" cy="252.2" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="521.5" cy="252.2" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-11-02: 57m (0.96 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="636.9" cy="201.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="579.2" cy="201.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-11-03: 4h 48m (4.80 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="694.6" cy="223.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="636.9" cy="223.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-11-04: 3h 09m (3.15 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="752.3" cy="265.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <circle cx="694.6" cy="265.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
       <title>2026-11-05: 0m (0.00 hrs)</title>
     </g>
     <g class="data-dot" tabindex="0">
-      <circle cx="810.0" cy="263.0" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
-      <title>2026-11-06: 9m (0.15 hrs)</title>
+      <circle cx="752.3" cy="255.8" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <title>2026-11-06: 41m (0.69 hrs)</title>
+    </g>
+    <g class="data-dot" tabindex="0">
+      <circle cx="810.0" cy="243.4" r="3" fill="#0D1117" stroke="#58a6ff" stroke-width="1.8" />
+      <title>2026-11-07: 1h 37m (1.62 hrs)</title>
     </g>
   </g>
 
   <!-- X-Axis Date Labels -->
   <g id="x-axis-labels">
-    <text x="60.0" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 24</text>
-    <text x="117.7" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 25</text>
-    <text x="175.4" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 26</text>
-    <text x="233.1" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 27</text>
-    <text x="290.8" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 28</text>
-    <text x="348.5" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 29</text>
-    <text x="406.2" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 30</text>
-    <text x="463.8" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 31</text>
-    <text x="521.5" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 01</text>
-    <text x="579.2" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 02</text>
-    <text x="636.9" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 03</text>
-    <text x="694.6" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 04</text>
-    <text x="752.3" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 05</text>
-    <text x="810.0" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 06</text>
+    <text x="60.0" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 25</text>
+    <text x="117.7" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 26</text>
+    <text x="175.4" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 27</text>
+    <text x="233.1" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 28</text>
+    <text x="290.8" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 29</text>
+    <text x="348.5" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 30</text>
+    <text x="406.2" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Oct 31</text>
+    <text x="463.8" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 01</text>
+    <text x="521.5" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 02</text>
+    <text x="579.2" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 03</text>
+    <text x="636.9" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 04</text>
+    <text x="694.6" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 05</text>
+    <text x="752.3" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 06</text>
+    <text x="810.0" y="283" fill="#8b949e" font-size="9.5" font-weight="400" text-anchor="middle" class="sans">Nov 07</text>
   </g>
 
   <!-- Middle Divider Line -->
@@ -165,7 +165,7 @@
 
     <!-- SECTION 1: TOTAL CONTRIBUTIONS -->
     <g transform="translate(185, 332)">
-      <text x="0" y="32" text-anchor="middle" font-size="26" font-weight="600" fill="#e6edf3" class="sans">217</text>
+      <text x="0" y="32" text-anchor="middle" font-size="26" font-weight="600" fill="#e6edf3" class="sans">218</text>
       <text x="0" y="58" text-anchor="middle" font-size="11" font-weight="600" fill="#8b949e" letter-spacing="0.5" class="sans">TOTAL CONTRIBUTIONS</text>
       <text x="0" y="80" text-anchor="middle" font-size="10.5" font-weight="400" fill="#58a6ff" class="sans">Nov 2, 2025 - Present</text>
     </g>
@@ -196,12 +196,12 @@
   <!-- ==================== ALL-TIME CODING HOURS FOOTER ==================== -->
   <g id="footer-all-time" transform="translate(60, 474)">
     <text x="0" y="13" fill="#8b949e" font-size="10" font-weight="600" letter-spacing="0.5" class="sans">TOTAL CODING TIME</text>
-    <text x="0" y="36" fill="#58a6ff" font-size="18" font-weight="600" class="sans">0h 00m</text>
+    <text x="0" y="36" fill="#58a6ff" font-size="18" font-weight="600" class="sans">144h 43m</text>
   </g>
 
   <!-- Footer Metadata -->
   <g id="footer-meta" transform="translate(810, 474)">
     <text x="0" y="13" fill="#8b949e" font-size="10" font-weight="500" text-anchor="end" class="sans">@rtomswastaken</text>
-    <text x="0" y="34" fill="#484f58" font-size="9.5" text-anchor="end" class="sans">UPDATED 2026-11-06 18:02 UTC</text>
+    <text x="0" y="34" fill="#484f58" font-size="9.5" text-anchor="end" class="sans">UPDATED 2026-11-06 21:39 UTC</text>
   </g>
 </svg>
