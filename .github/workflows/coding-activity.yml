@@ -37,6 +37,7 @@ jobs:
 
       - name: Generate coding activity graph
         env:
+          WAKATIME_OAUTH_TOKEN: ${{ secrets.WAKATIME_OAUTH_TOKEN }}
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           WAKATIME_JSON_URL: ${{ secrets.WAKATIME_JSON_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

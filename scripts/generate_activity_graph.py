@@ -9,7 +9,6 @@ for the GitHub profile README.
 """
 
 import argparse
-import base64
 import datetime
 import hashlib
 import json
@@ -97,42 +96,32 @@ def _open_url_safely(req: urllib.request.Request, timeout: int = 20) -> bytes:
 
 
 def _build_wakatime_auth_header(token: str) -> str:
-    """
-    Format Authorization header for WakaTime.
-    Supports:
-    - OAuth 2.0 Personal Access Tokens (Bearer <token>)
-    - Explicit 'Bearer <token>' or 'Basic <token>'
-    - Legacy API keys starting with 'waka_' or UUID format (Basic base64)
-    """
+    """Format Authorization header for WakaTime using OAuth 2.0 Bearer token authentication."""
     clean_token = token.strip()
     if clean_token.lower().startswith("bearer "):
-        return f"Bearer {clean_token[7:].strip()}"
-    if clean_token.lower().startswith("basic "):
-        return clean_token
-    # If the token starts with waka_ or is a legacy UUID, format as Basic auth
-    if clean_token.startswith("waka_") or re.fullmatch(r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}", clean_token):
-        auth_bytes = clean_token.encode("utf-8")
-        return f"Basic {base64.b64encode(auth_bytes).decode('ascii')}"
-    # Otherwise treat as OAuth 2.0 access token (e.g. sec_..., personal access token)
+        clean_token = clean_token[7:].strip()
     return f"Bearer {clean_token}"
 
 
 def fetch_wakatime_data(
-    api_key: Optional[str] = None,
+    token: Optional[str] = None,
     json_url: Optional[str] = None,
     timeout: int = 20,
+    api_key: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Fetch coding activity from WakaTime.
 
     Supports:
     1. json_url: Public embeddable JSON share (e.g. https://wakatime.com/share/@user/xxx.json)
-    2. api_key: Authenticated WakaTime summaries API (OAuth token or API key)
+    2. token: WakaTime OAuth 2.0 Bearer access token (Last 14 Days)
     """
     headers = {
         "User-Agent": "RTOMS-Coding-Activity-Graph/1.0 (+https://github.com/rtomswastaken/rtomswastaken)",
         "Accept": "application/json",
     }
+
+    auth_token = (token or api_key or "").strip()
 
     if json_url:
         parsed = urllib.parse.urlparse(json_url.strip())
@@ -140,15 +129,14 @@ def fetch_wakatime_data(
             raise ConfigurationError("WAKATIME_JSON_URL must start with https:// or http://")
         url = json_url.strip()
         req = urllib.request.Request(url, headers=headers, method="GET")
-    elif api_key:
-        api_key_clean = api_key.strip()
+    elif auth_token:
         url = "https://wakatime.com/api/v1/users/current/summaries?range=Last%2014%20Days"
-        headers["Authorization"] = _build_wakatime_auth_header(api_key_clean)
+        headers["Authorization"] = _build_wakatime_auth_header(auth_token)
         req = urllib.request.Request(url, headers=headers, method="GET")
     else:
         raise ConfigurationError(
-            "No WakaTime credentials configured. Please set WAKATIME_API_KEY (recommended) "
-            "or WAKATIME_JSON_URL in GitHub repository secrets."
+            "Missing WakaTime credentials. Please set the WAKATIME_OAUTH_TOKEN environment variable "
+            "or configure WAKATIME_JSON_URL in repository secrets."
         )
 
     try:
@@ -169,7 +157,7 @@ def fetch_wakatime_data(
             detail = f" ({error_msg})" if error_msg else ""
             raise AuthenticationError(
                 f"WakaTime API authentication failed (401 Unauthorized){detail}. "
-                "Check that WAKATIME_API_KEY secret is valid and not expired."
+                "Check that WAKATIME_OAUTH_TOKEN is valid and has not expired."
             ) from e
         elif e.code == 403:
             detail = f": {error_msg}" if error_msg else ". Ensure your token has the 'read_summaries' scope."
@@ -230,22 +218,23 @@ def format_all_time_duration(seconds: float) -> str:
 
 
 def fetch_wakatime_all_time(
-    api_key: Optional[str] = None,
+    token: Optional[str] = None,
     timeout: int = 20,
+    api_key: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Fetch lifetime all-time coding statistics from WakaTime API:
     https://wakatime.com/api/v1/users/current/all_time_since_today
     """
-    if not api_key:
-        raise ConfigurationError("WAKATIME_API_KEY is required to fetch all-time coding statistics.")
+    auth_token = (token or api_key or "").strip()
+    if not auth_token:
+        raise ConfigurationError("WAKATIME_OAUTH_TOKEN is required to fetch all-time coding statistics.")
 
-    api_key_clean = api_key.strip()
     url = "https://wakatime.com/api/v1/users/current/all_time_since_today"
     headers = {
         "User-Agent": "RTOMS-Coding-Activity-Graph/1.0 (+https://github.com/rtomswastaken/rtomswastaken)",
         "Accept": "application/json",
-        "Authorization": _build_wakatime_auth_header(api_key_clean),
+        "Authorization": _build_wakatime_auth_header(auth_token),
     }
     req = urllib.request.Request(url, headers=headers, method="GET")
 
@@ -1076,7 +1065,8 @@ def create_initial_placeholder_data(window_days: int = 14) -> Dict[str, Any]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate RTOMS Daily Dev Time & Contribution SVG graph.")
     parser.add_argument("--output", default="assets/coding-activity.svg", help="Path to output SVG file")
-    parser.add_argument("--api-key", help="WakaTime API Key (or set WAKATIME_API_KEY env var)")
+    parser.add_argument("--token", "--oauth-token", dest="token", help="WakaTime OAuth 2.0 Access Token (or set WAKATIME_OAUTH_TOKEN env var)")
+    parser.add_argument("--api-key", dest="token", help=argparse.SUPPRESS)
     parser.add_argument("--json-url", help="WakaTime public JSON share URL (or set WAKATIME_JSON_URL env var)")
     parser.add_argument("--github-user", default="rtomswastaken", help="GitHub username for contribution statistics")
     parser.add_argument("--github-token", help="GitHub Personal Access Token (or set GITHUB_TOKEN env var)")
@@ -1087,7 +1077,13 @@ def main() -> int:
     args = parser.parse_args()
 
     output_path = args.output
-    api_key = args.api_key or os.environ.get("WAKATIME_API_KEY") or os.environ.get("WAKATIME_TOKEN") or os.environ.get("WAKATIME_ACCESS_TOKEN")
+    oauth_token = (
+        args.token
+        or os.environ.get("WAKATIME_OAUTH_TOKEN")
+        or os.environ.get("WAKATIME_API_KEY")
+        or os.environ.get("WAKATIME_TOKEN")
+        or os.environ.get("WAKATIME_ACCESS_TOKEN")
+    )
     json_url = args.json_url or os.environ.get("WAKATIME_JSON_URL")
     github_token = args.github_token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
     github_user = args.github_user
@@ -1104,14 +1100,14 @@ def main() -> int:
             return 0
 
         # 1. Fetch WakaTime 14-day activity statistics
-        raw_json = fetch_wakatime_data(api_key=api_key, json_url=json_url)
+        raw_json = fetch_wakatime_data(token=oauth_token, json_url=json_url)
         activity_data = parse_wakatime_data(raw_json, window_days=14)
 
         # 2. Fetch WakaTime all-time coding statistics
         all_time_data = None
-        if api_key:
+        if oauth_token:
             try:
-                raw_at = fetch_wakatime_all_time(api_key=api_key)
+                raw_at = fetch_wakatime_all_time(token=oauth_token)
                 all_time_data = parse_wakatime_all_time(raw_at)
                 print(f"[INFO] Fetched WakaTime all-time coding time: {all_time_data['formatted']}")
             except Exception as e:

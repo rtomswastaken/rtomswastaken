@@ -252,8 +252,9 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
     # TEST 5: Authentication and Error Handling (WakaTime)
     # ----------------------------------------------------
     def test_missing_credentials_raises_configuration_error(self):
-        with self.assertRaises(ConfigurationError):
-            fetch_wakatime_data(api_key=None, json_url=None)
+        with self.assertRaises(ConfigurationError) as ctx:
+            fetch_wakatime_data(token=None, json_url=None)
+        self.assertIn("WAKATIME_OAUTH_TOKEN", str(ctx.exception))
 
     @patch("urllib.request.urlopen")
     def test_auth_failure_401_raises_authentication_error(self, mock_urlopen):
@@ -265,8 +266,9 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             hdrs={},
             fp=None,
         )
-        with self.assertRaises(AuthenticationError):
-            fetch_wakatime_data(api_key="invalid_test_key")
+        with self.assertRaises(AuthenticationError) as ctx:
+            fetch_wakatime_data(token="invalid_test_token")
+        self.assertIn("WAKATIME_OAUTH_TOKEN", str(ctx.exception))
 
     @patch("urllib.request.urlopen")
     def test_auth_failure_403_raises_authorization_error(self, mock_urlopen):
@@ -279,28 +281,39 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             fp=None,
         )
         with self.assertRaises(AuthorizationError):
-            fetch_wakatime_data(api_key="restricted_key")
+            fetch_wakatime_data(token="restricted_token")
 
     def test_build_wakatime_auth_header(self):
-        # Legacy waka_ prefix uses Basic auth
-        header_waka = _build_wakatime_auth_header("waka_12345678-1234-1234-1234-123456789abc")
-        self.assertTrue(header_waka.startswith("Basic "))
+        # Standard OAuth token format
+        header_sec = _build_wakatime_auth_header("sec_abcdef1234567890")
+        self.assertEqual(header_sec, "Bearer sec_abcdef1234567890")
 
-        # UUID format uses Basic auth
-        header_uuid = _build_wakatime_auth_header("428577ce-f28f-4b6f-baf3-62706009950d")
-        self.assertTrue(header_uuid.startswith("Basic "))
+        # Generic OAuth token
+        header_generic = _build_wakatime_auth_header("oauth_token_value_xyz")
+        self.assertEqual(header_generic, "Bearer oauth_token_value_xyz")
 
         # Explicit Bearer token
         header_explicit = _build_wakatime_auth_header("Bearer my_oauth_token")
         self.assertEqual(header_explicit, "Bearer my_oauth_token")
 
-        # OAuth personal token (sec_...) uses Bearer auth
-        header_sec = _build_wakatime_auth_header("sec_abcdef1234567890")
-        self.assertEqual(header_sec, "Bearer sec_abcdef1234567890")
+        # Case-insensitive bearer prefix handling
+        header_lower = _build_wakatime_auth_header("bearer my_oauth_token")
+        self.assertEqual(header_lower, "Bearer my_oauth_token")
 
-        # Generic OAuth token uses Bearer auth
-        header_generic = _build_wakatime_auth_header("oauth_token_value_xyz")
-        self.assertEqual(header_generic, "Bearer oauth_token_value_xyz")
+    @patch("urllib.request.urlopen")
+    def test_fetch_wakatime_data_sends_bearer_header(self, mock_urlopen):
+        import io
+        mock_resp = MagicMock()
+        mock_resp.getcode.return_value = 200
+        mock_resp.read.return_value = json.dumps(self.sample_api_summaries).encode("utf-8")
+        mock_resp.__enter__.return_value = mock_resp
+        mock_resp.__exit__.return_value = None
+        mock_urlopen.return_value = mock_resp
+
+        fetch_wakatime_data(token="test_oauth_token")
+        self.assertTrue(mock_urlopen.called)
+        req = mock_urlopen.call_args[0][0]
+        self.assertEqual(req.headers.get("Authorization"), "Bearer test_oauth_token")
 
     @patch("urllib.request.urlopen")
     def test_auth_failure_403_with_server_message(self, mock_urlopen):
@@ -314,7 +327,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             fp=err_body,
         )
         with self.assertRaises(AuthorizationError) as ctx:
-            fetch_wakatime_data(api_key="restricted_key")
+            fetch_wakatime_data(token="restricted_token")
         self.assertIn("API Keys are only for plugins", str(ctx.exception))
 
     @patch("urllib.request.urlopen")
@@ -328,7 +341,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             fp=None,
         )
         with self.assertRaises(RateLimitError):
-            fetch_wakatime_data(api_key="valid_key")
+            fetch_wakatime_data(token="valid_token")
 
     # ----------------------------------------------------
     # TEST 6: SVG Generation and XML Validity
@@ -603,13 +616,14 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
     @patch("generate_activity_graph._open_url_safely")
     def test_fetch_wakatime_all_time_success(self, mock_open):
         mock_open.return_value = json.dumps(self.sample_all_time_json).encode("utf-8")
-        res = fetch_wakatime_all_time(api_key="valid_test_key")
+        res = fetch_wakatime_all_time(token="valid_test_token")
         self.assertIn("data", res)
         self.assertEqual(res["data"]["total_seconds"], 4443600.0)
 
-    def test_fetch_wakatime_all_time_missing_api_key(self):
-        with self.assertRaises(ConfigurationError):
-            fetch_wakatime_all_time(api_key=None)
+    def test_fetch_wakatime_all_time_missing_token(self):
+        with self.assertRaises(ConfigurationError) as ctx:
+            fetch_wakatime_all_time(token=None)
+        self.assertIn("WAKATIME_OAUTH_TOKEN", str(ctx.exception))
 
     @patch("generate_activity_graph._open_url_safely")
     def test_fetch_wakatime_all_time_401(self, mock_open):
@@ -622,7 +636,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             fp=None,
         )
         with self.assertRaises(AuthenticationError):
-            fetch_wakatime_all_time(api_key="bad_key")
+            fetch_wakatime_all_time(token="bad_token")
 
     @patch("generate_activity_graph._open_url_safely")
     def test_fetch_wakatime_all_time_403(self, mock_open):
@@ -635,7 +649,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             fp=None,
         )
         with self.assertRaises(AuthorizationError):
-            fetch_wakatime_all_time(api_key="restricted_key")
+            fetch_wakatime_all_time(token="restricted_token")
 
     @patch("generate_activity_graph._open_url_safely")
     def test_fetch_wakatime_all_time_429(self, mock_open):
@@ -648,7 +662,7 @@ class TestWakaTimeActivityGraph(unittest.TestCase):
             fp=None,
         )
         with self.assertRaises(RateLimitError):
-            fetch_wakatime_all_time(api_key="valid_key")
+            fetch_wakatime_all_time(token="valid_token")
 
     # ----------------------------------------------------
     # TEST 18: SVG Rendering with All-Time Data & Hash
